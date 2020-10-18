@@ -20,8 +20,6 @@ import java.util.List;
  * Data Access Object para o modelo Consulta.
  *
  * @see https://pt.wikipedia.org/wiki/Objeto_de_acesso_a_dados
- *
- * @author danilo
  */
 public class ConsultaDAO extends GenericDAO {
 	private final MedicoDAO medicoDAO;

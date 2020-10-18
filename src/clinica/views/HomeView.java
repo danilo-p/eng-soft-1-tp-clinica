@@ -12,9 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 /**
- * Página Home com os botões que levam para as outras telas
- *
- * @author danilo
+ * View para a página inicial.
  */
 public class HomeView extends JPanel {
 

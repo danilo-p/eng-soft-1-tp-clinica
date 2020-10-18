@@ -6,8 +6,7 @@
 package clinica.models;
 
 /**
- *
- * @author Vien
+ * Modelo para equipamentos.
  */
 public class Equipamento extends Agendavel {
 	private int id;

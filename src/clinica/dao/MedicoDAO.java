@@ -16,8 +16,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Data Access Object para o modelo Medico.
  *
- * @author Bernardo Senna
+ * @see https://pt.wikipedia.org/wiki/Objeto_de_acesso_a_dados
  */
 public class MedicoDAO extends GenericDAO {
 

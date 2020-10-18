@@ -21,8 +21,7 @@ import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 
 /**
- *
- * @author Bernardo Senna
+ * View para listagem de medicos.
  */
 public class MedicosView extends JPanel {
 

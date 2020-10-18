@@ -10,8 +10,6 @@ import clinica.views.Router;
 
 /**
  * Classe principal que deve somente iniciar a aplicação na página home.
- *
- * @author danilo
  */
 public class Clinica {
 

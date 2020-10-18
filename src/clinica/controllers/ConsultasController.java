@@ -17,8 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
- * @author Bernardo Senna
+ * Regras de negócio para operações relacionadas a consultas.
  */
 public class ConsultasController {
 

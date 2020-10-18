@@ -7,8 +7,6 @@ package clinica.models;
 
 /**
  * Modelo para pessoas.
- *
- * @author danilo
  */
 public class Pessoa extends Agendavel {
 

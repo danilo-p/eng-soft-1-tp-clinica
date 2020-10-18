@@ -27,8 +27,7 @@ import java.util.Calendar;
 import java.util.List;
 
 /**
- *
- * @author Bernardo Senna
+ * View para a agenda de um medico.
  */
 public class AgendaMedicoView extends JPanel {
 

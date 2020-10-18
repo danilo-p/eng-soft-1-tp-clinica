@@ -18,9 +18,7 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 /**
- * Página de cadastro de cliente
- *
- * @author danilo
+ * View para o cadastro de um cliente.
  */
 public class CadastroClienteView extends JPanel {
 	private static final long serialVersionUID = 1L;

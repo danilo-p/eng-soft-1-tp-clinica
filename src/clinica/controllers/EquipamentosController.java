@@ -15,8 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
- * @author eduardomelgaco
+ * Regras de negócio para operações relacionadas a equipamentos.
  */
 public class EquipamentosController {
 

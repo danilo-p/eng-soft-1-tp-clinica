@@ -13,8 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
- * @author danilo
+ * Regras de negócio para operações relacionadas a clientes.
  */
 public class ClientesController {
 

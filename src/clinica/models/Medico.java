@@ -6,8 +6,7 @@
 package clinica.models;
 
 /**
- *
- * @author Bernardo Senna
+ * Modelo para medicos.
  */
 public class Medico extends Pessoa {
 

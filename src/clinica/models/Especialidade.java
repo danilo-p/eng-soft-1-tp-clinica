@@ -6,8 +6,7 @@
 package clinica.models;
 
 /**
- *
- * @author vien
+ * Modelo para especialidades.
  */
 public class Especialidade {
 	private int id;

@@ -18,8 +18,7 @@ import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author Bernardo Senna
+ * Regras de negócio para operações relacionadas a medicos.
  */
 public class MedicosController {
 

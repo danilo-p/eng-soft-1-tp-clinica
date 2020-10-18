@@ -7,8 +7,6 @@ package clinica.models;
 
 /**
  * Modelo para clientes.
- *
- * @author danilo
  */
 public class Cliente extends Pessoa {
 }

@@ -30,9 +30,7 @@ import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 
 /**
- * Página de cadastro de medico
- *
- * @author Bernardo Senna
+ * View para o cadastro de um medico.
  */
 public class CadastroMedicoView extends JPanel {
 	private static final long serialVersionUID = 1L;

@@ -8,9 +8,7 @@ package clinica.models;
 import java.sql.Timestamp;
 
 /**
- * Consulta para agenda.
- *
- * @author danilo
+ * Modelo para consultas.
  */
 public class Consulta {
 

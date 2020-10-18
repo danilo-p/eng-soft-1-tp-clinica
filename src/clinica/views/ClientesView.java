@@ -21,10 +21,7 @@ import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 
 /**
- * Página de listagem de clientes com botão que leva à página de cadastro de
- * cliente
- *
- * @author danilo
+ * View para a listagem de clientes.
  */
 public class ClientesView extends JPanel {
 

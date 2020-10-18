@@ -11,8 +11,6 @@ import javax.swing.WindowConstants;
 
 /**
  * Roteador do aplicativo usado para mudança de views.
- *
- * @author danilo
  */
 public class Router extends JFrame {
 

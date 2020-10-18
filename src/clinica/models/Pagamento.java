@@ -6,8 +6,7 @@
 package clinica.models;
 
 /**
- *
- * @author Bernardo Senna
+ * Modelo para pagamentos.
  */
 public class Pagamento {
 

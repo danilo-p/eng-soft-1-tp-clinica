@@ -28,9 +28,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * Página de cadastro de equipamento
- *
- * @author Edu
+ * View para o cadastro de um equipamento.
  */
 public class CadastroEquipamentoView extends JPanel {
 	private static final long serialVersionUID = 1L;

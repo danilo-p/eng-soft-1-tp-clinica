@@ -18,8 +18,6 @@ import java.util.List;
  * Data Access Object para o modelo Cliente.
  *
  * @see https://pt.wikipedia.org/wiki/Objeto_de_acesso_a_dados
- *
- * @author danilo
  */
 public class ClienteDAO extends GenericDAO {
 

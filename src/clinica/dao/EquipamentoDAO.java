@@ -16,8 +16,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Data Access Object para o modelo Equipamento.
  *
- * @author Vien
+ * @see https://pt.wikipedia.org/wiki/Objeto_de_acesso_a_dados
  */
 public class EquipamentoDAO extends GenericDAO {
 	private EspecialidadeDAO especialidadeDAO;

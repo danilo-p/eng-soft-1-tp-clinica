@@ -22,8 +22,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 /**
- *
- * @author Bernardo Senna
+ * View para confirmação de cadastro de consulta.
  */
 public class ConfirmaConsultaView extends JPanel {
 

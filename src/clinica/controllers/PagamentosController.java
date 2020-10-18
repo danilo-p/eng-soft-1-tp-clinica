@@ -10,8 +10,7 @@ import clinica.models.Pagamento;
 import java.sql.SQLException;
 
 /**
- *
- * @author Bernardo Senna
+ * Regras de negócio para operações relacionadas a pagamentos.
  */
 public class PagamentosController {
 

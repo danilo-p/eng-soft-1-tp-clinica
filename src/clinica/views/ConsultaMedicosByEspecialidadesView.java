@@ -20,8 +20,7 @@ import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 
 /**
- *
- * @author Bernardo Senna
+ * View para consultar medicos por uma especialidade.
  */
 public class ConsultaMedicosByEspecialidadesView extends JPanel {
 

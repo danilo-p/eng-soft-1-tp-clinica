@@ -17,8 +17,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JComboBox;
 
 /**
- *
- * @author Bernardo Senna
+ * View para o cadastro de uma consulta.
  */
 public class CadastroConsultaView extends JPanel {
 

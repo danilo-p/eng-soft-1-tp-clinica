@@ -15,8 +15,6 @@ import java.sql.Statement;
  * Data Access Object genérico.
  *
  * @see https://pt.wikipedia.org/wiki/Objeto_de_acesso_a_dados
- *
- * @author danilo
  */
 public abstract class GenericDAO {
 

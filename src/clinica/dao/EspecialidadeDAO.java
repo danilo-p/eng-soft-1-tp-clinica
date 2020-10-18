@@ -14,8 +14,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Data Access Object para o modelo Especialidade.
  *
- * @author vien
+ * @see https://pt.wikipedia.org/wiki/Objeto_de_acesso_a_dados
  */
 public class EspecialidadeDAO extends GenericDAO {
 

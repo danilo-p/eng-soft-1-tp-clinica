@@ -13,8 +13,6 @@ import java.sql.SQLException;
  * Data Access Object para o modelo Pessoa.
  *
  * @see https://pt.wikipedia.org/wiki/Objeto_de_acesso_a_dados
- *
- * @author danilo
  */
 public class PessoaDAO extends GenericDAO {
 

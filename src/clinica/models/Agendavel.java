@@ -8,8 +8,6 @@ package clinica.models;
 /**
  * Abstração de entidades que são agendáveis. Se ela é agendável, então ela tem
  * uma agenda.
- *
- * @author danilo
  */
 public abstract class Agendavel {
 

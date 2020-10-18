@@ -18,8 +18,7 @@ import javax.swing.border.EmptyBorder;
 import java.sql.Time;
 
 /**
- *
- * @author vien
+ * View para a agenda de um cliente.
  */
 public class AgendaClienteView extends JPanel {
 	private static final long serialVersionUID = 1L;

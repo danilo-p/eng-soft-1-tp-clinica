@@ -10,9 +10,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 /**
- * Modelo para agenda.
- *
- * @author danilo
+ * Modelo para agendas.
  */
 public class Agenda {
 

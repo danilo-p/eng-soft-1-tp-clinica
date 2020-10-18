@@ -9,8 +9,9 @@ import clinica.models.Pagamento;
 import java.sql.SQLException;
 
 /**
+ * Data Access Object para o modelo Pagamento.
  *
- * @author Bernardo Senna
+ * @see https://pt.wikipedia.org/wiki/Objeto_de_acesso_a_dados
  */
 public class PagamentoDAO extends GenericDAO {
 
