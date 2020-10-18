@@ -22,6 +22,8 @@ import javax.swing.JComboBox;
  */
 public class CadastroConsultaView extends JPanel {
 
+	private static final long serialVersionUID = 1L;
+
 	int especialidadeId;
 
 	public CadastroConsultaView() {
@@ -38,7 +40,7 @@ public class CadastroConsultaView extends JPanel {
 
 		// preenche o combobox com as especialidades existentes no banco de dados.
 		EspecialidadesController especialidadesController = new EspecialidadesController();
-		List especialidades = especialidadesController.getEspecialidades();
+		List<Especialidade> especialidades = especialidadesController.getEspecialidades();
 		for (int i = 0; i < especialidades.size(); i++) {
 			Especialidade especialidade = (Especialidade) especialidades.get(i);
 			especialidadeComboBox.addItem(especialidade.getNome());

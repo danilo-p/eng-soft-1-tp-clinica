@@ -45,8 +45,8 @@ public class ConsultaDAO extends GenericDAO {
 		update(update, consulta.getData(), consulta.getMedico().getId(), consulta.getCliente().getId());
 	}
 
-	public List findByCliente(Cliente cliente) throws SQLException {
-		List consultas = new ArrayList();
+	public List<Consulta> findByCliente(Cliente cliente) throws SQLException {
+		List<Consulta> consultas = new ArrayList<Consulta>();
 
 		String select = "SELECT * FROM consultas WHERE cliente_id = ?";
 		Connection connection = getConnection();
@@ -75,8 +75,8 @@ public class ConsultaDAO extends GenericDAO {
 		return consultas;
 	}
 
-	public List findByMedico(Medico medico, Timestamp inicio, Timestamp fim) throws SQLException {
-		List consultas = new ArrayList();
+	public List<Consulta> findByMedico(Medico medico, Timestamp inicio, Timestamp fim) throws SQLException {
+		List<Consulta> consultas = new ArrayList<Consulta>();
 
 		String select = "SELECT * FROM consultas WHERE medico_id = ? AND data BETWEEN ? AND ?";
 		Connection connection = getConnection();

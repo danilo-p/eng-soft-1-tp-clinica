@@ -35,8 +35,8 @@ public class ClienteDAO extends GenericDAO {
 		this.pessoaDAO.salvar(cliente);
 	}
 
-	public List findClientes() throws SQLException {
-		List pessoas = new ArrayList();
+	public List<Cliente> findClientes() throws SQLException {
+		List<Cliente> clientes = new ArrayList<Cliente>();
 
 		String select = "SELECT * FROM pessoas WHERE tipo = 0";
 
@@ -58,14 +58,14 @@ public class ClienteDAO extends GenericDAO {
 			Agenda agenda = this.agendaDAO.findById(agendaId);
 			cliente.setAgenda(agenda);
 
-			pessoas.add(cliente);
+			clientes.add(cliente);
 		}
 
 		rs.close();
 		stmt.close();
 		connection.close();
 
-		return pessoas;
+		return clientes;
 	}
 
 	public Cliente findById(int id) throws SQLException {

@@ -26,7 +26,6 @@ public class MedicosController {
 	private final MedicoDAO medicoDAO;
 	private Time horaInicio;
 	private Time horaFim;
-	private Time tempoIntervalo;
 
 	public MedicosController() {
 		this.medicoDAO = new MedicoDAO();
@@ -67,7 +66,7 @@ public class MedicosController {
 		}
 	}
 
-	public List getMedicos() {
+	public List<Medico> getMedicos() {
 		try {
 			return this.medicoDAO.findMedicos();
 		} catch (SQLException ex) {
@@ -77,7 +76,7 @@ public class MedicosController {
 		}
 	}
 
-	public List getMedicosByEspecialidadeId(int id) {
+	public List<Medico> getMedicosByEspecialidadeId(int id) {
 		try {
 			return this.medicoDAO.findMedicosByEspecialidadeId(id);
 		} catch (SQLException ex) {

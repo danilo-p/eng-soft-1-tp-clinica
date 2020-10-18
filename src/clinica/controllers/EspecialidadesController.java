@@ -36,7 +36,7 @@ public class EspecialidadesController {
 		}
 	}
 
-	public List getEspecialidades() {
+	public List<Especialidade> getEspecialidades() {
 		try {
 			return this.especialidadeDAO.findEspecialidades();
 		} catch (SQLException ex) {

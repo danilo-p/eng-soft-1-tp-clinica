@@ -20,7 +20,6 @@ import java.sql.SQLException;
 public class ConnectionDatabase {
 
 	private static final String URL_MYSQL = "jdbc:mysql://localhost/clinica";
-	private static final String DRIVER_CLASS = "com.mysql.jdbc.Driver";
 	private static final String USER = "root";
 	private static final String PASS = "";
 

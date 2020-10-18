@@ -35,10 +35,11 @@ import javax.swing.border.EmptyBorder;
  * @author Bernardo Senna
  */
 public class CadastroMedicoView extends JPanel {
+	private static final long serialVersionUID = 1L;
+
 	EspecialidadesController especialidadesController = new EspecialidadesController();
 	private final EspecialidadeDAO especialidadeDAO = new EspecialidadeDAO();
 	private final String[] intervalo = { "15", "20", "30" };
-	private final String[] dias = new String[3];
 	private JTextField nomeField, cpfField, telefoneField, horaInicioField, especialidadeField;
 	private JCheckBox seg, ter, qua, qui, sex;
 	private JComboBox<String> especialidadeComboBox, intervaloComboBox;
@@ -134,9 +135,6 @@ public class CadastroMedicoView extends JPanel {
 			String number = intervalo[i];
 			intervaloComboBox.addItem(number);
 		}
-		intervaloComboBox.addActionListener((ActionEvent e) -> {
-			String textoIntervaloComboBox = (String) intervaloComboBox.getSelectedItem();
-		});
 
 		JPanel cargaHorariaFieldPanel = new JPanel();
 		JLabel cargaHorariaLabel = new JLabel("Dias da semana:");
@@ -173,7 +171,7 @@ public class CadastroMedicoView extends JPanel {
 		especialidadeFieldPanel.add(especialidadeError);
 		fieldsPanel.add(especialidadeFieldPanel);
 
-		List especialidades = especialidadesController.getEspecialidades();
+		List<Especialidade> especialidades = especialidadesController.getEspecialidades();
 		especialidadeComboBox.addItem("");
 		for (int i = 0; i < especialidades.size(); i++) {
 			Especialidade especialidade = (Especialidade) especialidades.get(i);

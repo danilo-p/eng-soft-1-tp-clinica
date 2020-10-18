@@ -42,7 +42,7 @@ public class ClientesController {
 		}
 	}
 
-	public List getClientes() {
+	public List<Cliente> getClientes() {
 		try {
 			return this.clienteDAO.findClientes();
 		} catch (SQLException ex) {

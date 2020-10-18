@@ -27,6 +27,8 @@ import javax.swing.JTextField;
  */
 public class ConfirmaConsultaView extends JPanel {
 
+	private static final long serialVersionUID = 1L;
+
 	Cliente cliente;
 	String textoClienteComboBox, textoPagamentoComboBox, textoMatriculaConveniado;
 	int tipoPagamento;
@@ -41,7 +43,7 @@ public class ConfirmaConsultaView extends JPanel {
 		clienteFieldPanel.add(clienteComboBox);
 
 		ClientesController clientesController = new ClientesController();
-		List clientes = clientesController.getClientes();
+		List<Cliente> clientes = clientesController.getClientes();
 		for (int i = 0; i < clientes.size(); i++) {
 			Cliente cliente = (Cliente) clientes.get(i);
 			clienteComboBox.addItem(cliente.getNome());

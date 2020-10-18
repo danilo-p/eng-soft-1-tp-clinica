@@ -40,7 +40,7 @@ public class EquipamentosController {
 		}
 	}
 
-	public List getEquipamentos() {
+	public List<Equipamento> getEquipamentos() {
 		try {
 			return this.equipamentoDAO.findEquipamentos();
 		} catch (SQLException ex) {

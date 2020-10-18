@@ -9,7 +9,6 @@ import clinica.controllers.MedicosController;
 import clinica.models.Medico;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
-import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -50,7 +49,7 @@ public class MedicosView extends JPanel {
 		this.add(tituloPanel, BorderLayout.NORTH);
 
 		MedicosController medicosController = new MedicosController();
-		List medicos = medicosController.getMedicos();
+		List<Medico> medicos = medicosController.getMedicos();
 
 		String[] titulos = { "ID", "Nome", "CPF", "Telefone", "Especialidade" };
 		Object[][] linhas = new Object[medicos.size()][5];
@@ -70,8 +69,6 @@ public class MedicosView extends JPanel {
 			@Override
 			public void mousePressed(MouseEvent mouseEvent) {
 				JTable table = (JTable) mouseEvent.getSource();
-				Point point = mouseEvent.getPoint();
-				int row = table.rowAtPoint(point);
 				if (mouseEvent.getClickCount() == 2 && table.getSelectedRow() != -1) {
 					Medico medicoSelecionado = (Medico) medicos.get(table.getSelectedRow());
 					System.out.println(medicoSelecionado.getNome());

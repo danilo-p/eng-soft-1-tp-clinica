@@ -22,6 +22,8 @@ import java.sql.Time;
  * @author vien
  */
 public class AgendaClienteView extends JPanel {
+	private static final long serialVersionUID = 1L;
+
 	AgendaClienteView(Cliente cliente) {
 		this.setBorder(new EmptyBorder(15, 15, 15, 15));
 		this.setLayout(new BorderLayout(15, 15));

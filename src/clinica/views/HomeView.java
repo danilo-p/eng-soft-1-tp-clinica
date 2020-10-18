@@ -18,6 +18,8 @@ import javax.swing.border.EmptyBorder;
  */
 public class HomeView extends JPanel {
 
+	private static final long serialVersionUID = 1L;
+
 	public HomeView() {
 		this.setBorder(new EmptyBorder(15, 15, 15, 15));
 		this.setLayout(new GridLayout(2, 2, 15, 15));

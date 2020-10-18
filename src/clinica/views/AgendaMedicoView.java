@@ -32,6 +32,8 @@ import java.util.List;
  */
 public class AgendaMedicoView extends JPanel {
 
+	private static final long serialVersionUID = 1L;
+
 	public AgendaMedicoView(Medico medico, JPanel voltarView, int controleSemana) {
 
 		this.setBorder(new EmptyBorder(15, 15, 15, 15));
@@ -113,7 +115,7 @@ public class AgendaMedicoView extends JPanel {
 		cal.set(Calendar.DAY_OF_WEEK, cal.getFirstDayOfWeek());
 		cal.add(Calendar.DATE, cargaHorariaInteiros[cargaHorariaInteiros.length - 1] + 1);
 		Timestamp cargaHorariaFim = new Timestamp(cal.getTimeInMillis());
-		List consultas = consultasController.getByMedico(medico, cargaHorariaInicio, cargaHorariaFim);
+		List<Consulta> consultas = consultasController.getByMedico(medico, cargaHorariaInicio, cargaHorariaFim);
 		for (int i = 0; i < consultas.size(); i++) {
 			Consulta consulta = (Consulta) consultas.get(i);
 			Timestamp dataConsulta = consulta.getData();

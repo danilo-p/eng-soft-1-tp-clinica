@@ -33,6 +33,8 @@ import java.util.logging.Logger;
  * @author Edu
  */
 public class CadastroEquipamentoView extends JPanel {
+	private static final long serialVersionUID = 1L;
+
 	EspecialidadesController especialidadesController = new EspecialidadesController();
 	private final EspecialidadeDAO especialidadeDAO = new EspecialidadeDAO();
 
@@ -85,7 +87,7 @@ public class CadastroEquipamentoView extends JPanel {
 		especialidadeFieldPanel.add(especialidadeError);
 		fieldsPanel.add(especialidadeFieldPanel);
 
-		List especialidades = especialidadesController.getEspecialidades();
+		List<Especialidade> especialidades = especialidadesController.getEspecialidades();
 		especialidadeComboBox.addItem("");
 		for (int i = 0; i < especialidades.size(); i++) {
 			Especialidade especialidade = (Especialidade) especialidades.get(i);

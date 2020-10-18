@@ -46,7 +46,7 @@ public class ConsultasController {
 		return null;
 	}
 
-	public List getByMedico(Medico medico, Timestamp inicio, Timestamp fim) {
+	public List<Consulta> getByMedico(Medico medico, Timestamp inicio, Timestamp fim) {
 		try {
 			return this.consultaDAO.findByMedico(medico, inicio, fim);
 		} catch (SQLException ex) {

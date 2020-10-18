@@ -23,6 +23,8 @@ import javax.swing.border.EmptyBorder;
  * @author danilo
  */
 public class CadastroClienteView extends JPanel {
+	private static final long serialVersionUID = 1L;
+
 	JTextField nomeField;
 	JTextField cpfField;
 	JTextField telefoneField;

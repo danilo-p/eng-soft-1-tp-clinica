@@ -8,7 +8,6 @@ package clinica.views;
 import clinica.controllers.MedicosController;
 import clinica.models.Medico;
 import java.awt.BorderLayout;
-import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -26,6 +25,8 @@ import javax.swing.border.EmptyBorder;
  */
 public class ConsultaMedicosByEspecialidadesView extends JPanel {
 
+	private static final long serialVersionUID = 1L;
+
 	public ConsultaMedicosByEspecialidadesView(int id) {
 
 		this.setBorder(new EmptyBorder(15, 15, 15, 15));
@@ -37,7 +38,7 @@ public class ConsultaMedicosByEspecialidadesView extends JPanel {
 		this.add(tituloFieldPanel, BorderLayout.NORTH);
 
 		MedicosController medicosController = new MedicosController();
-		List medicos = medicosController.getMedicosByEspecialidadeId(id);
+		List<Medico> medicos = medicosController.getMedicosByEspecialidadeId(id);
 
 		String[] titulos = { "ID", "Nome", "CPF", "Telefone", "Especialidade" };
 		Object[][] linhas = new Object[medicos.size()][5];
@@ -57,8 +58,6 @@ public class ConsultaMedicosByEspecialidadesView extends JPanel {
 			@Override
 			public void mousePressed(MouseEvent mouseEvent) {
 				JTable table = (JTable) mouseEvent.getSource();
-				Point point = mouseEvent.getPoint();
-				int row = table.rowAtPoint(point);
 				if (mouseEvent.getClickCount() == 2 && table.getSelectedRow() != -1) {
 					Medico medicoSelecionado = (Medico) medicos.get(table.getSelectedRow());
 					Router.getInstance().goToView(new AgendaMedicoView(medicoSelecionado, voltarView, 0));

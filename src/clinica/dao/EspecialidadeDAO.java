@@ -76,9 +76,9 @@ public class EspecialidadeDAO extends GenericDAO {
 		return especialidade;
 	}
 
-	public List findEspecialidades() throws SQLException {
+	public List<Especialidade> findEspecialidades() throws SQLException {
 
-		List listEspecialidades = new ArrayList();
+		List<Especialidade> listEspecialidades = new ArrayList<Especialidade>();
 
 		String select = "SELECT * FROM especialidades";
 

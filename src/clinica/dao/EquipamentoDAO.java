@@ -38,8 +38,8 @@ public class EquipamentoDAO extends GenericDAO {
 		}
 	}
 
-	public List findEquipamentos() throws SQLException {
-		List equipamentos = new ArrayList();
+	public List<Equipamento> findEquipamentos() throws SQLException {
+		List<Equipamento> equipamentos = new ArrayList<Equipamento>();
 
 		String select = "SELECT * FROM equipamentos";
 
@@ -104,8 +104,8 @@ public class EquipamentoDAO extends GenericDAO {
 		return equip;
 	}
 
-	public List findByEspecialidade(Especialidade especialidade) throws SQLException {
-		List equipamentos = new ArrayList();
+	public List<Equipamento> findByEspecialidade(Especialidade especialidade) throws SQLException {
+		List<Equipamento> equipamentos = new ArrayList<Equipamento>();
 
 		String select = "SELECT * FROM equipamentos WHERE especialidade_id = ?";
 		Connection connection = getConnection();

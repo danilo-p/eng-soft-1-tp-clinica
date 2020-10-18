@@ -9,7 +9,6 @@ import clinica.controllers.ClientesController;
 import clinica.models.Cliente;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
-import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -28,6 +27,8 @@ import javax.swing.border.EmptyBorder;
  * @author danilo
  */
 public class ClientesView extends JPanel {
+
+	private static final long serialVersionUID = 1L;
 
 	public ClientesView() {
 		this.setBorder(new EmptyBorder(15, 15, 15, 15));
@@ -49,7 +50,7 @@ public class ClientesView extends JPanel {
 		this.add(tituloPanel, BorderLayout.NORTH);
 
 		ClientesController clientesController = new ClientesController();
-		List clientes = clientesController.getClientes();
+		List<Cliente> clientes = clientesController.getClientes();
 
 		String[] titulos = { "ID", "Nome", "CPF", "Telefone" };
 		Object[][] linhas = new Object[clientes.size()][4];
@@ -67,8 +68,6 @@ public class ClientesView extends JPanel {
 			@Override
 			public void mousePressed(MouseEvent mouseEvent) {
 				JTable table = (JTable) mouseEvent.getSource();
-				Point point = mouseEvent.getPoint();
-				int row = table.rowAtPoint(point);
 				if (mouseEvent.getClickCount() == 2 && table.getSelectedRow() != -1) {
 					Cliente clienteSelecionado = (Cliente) clientes.get(table.getSelectedRow());
 					System.out.println(clienteSelecionado.getNome());
