@@ -15,33 +15,36 @@ public class HomeView extends JPanel {
 	private static final long serialVersionUID = 1L;
 
 	public HomeView() {
-//		Layout da view
-		{
-			this.setBorder(new EmptyBorder(15, 15, 15, 15));
-			this.setLayout(new GridLayout(2, 2, 15, 15));
-		}
+		this.setViewLayout();
+		this.addViewBody();
+	}
 
-//		Corpo da view
-		{
-			JButton medicosButton = new JButton("Médicos");
-			medicosButton.addActionListener((ActionEvent e) -> {
-				Router.getInstance().goToView(new MedicosView());
-			});
-			this.add(medicosButton);
+//	Configura layout da view
+	private void setViewLayout() {
+		this.setBorder(new EmptyBorder(15, 15, 15, 15));
+		this.setLayout(new GridLayout(2, 2, 15, 15));
+	}
 
-			JButton clientesButton = new JButton("Clientes");
-			clientesButton.addActionListener((ActionEvent e) -> {
-				Router.getInstance().goToView(new ClientesView());
-			});
-			this.add(clientesButton);
+//	Adiciona corpo da view
+	private void addViewBody() {
+		JButton medicosButton = new JButton("Médicos");
+		medicosButton.addActionListener((ActionEvent e) -> {
+			Router.getInstance().goToView(new MedicosView());
+		});
+		this.add(medicosButton);
 
-			JButton novaConsultaButton = new JButton("Nova Consulta");
-			novaConsultaButton.addActionListener((ActionEvent e) -> {
-				Router.getInstance().goToView(new CadastroConsultaView());
-			});
-			this.add(novaConsultaButton);
+		JButton clientesButton = new JButton("Clientes");
+		clientesButton.addActionListener((ActionEvent e) -> {
+			Router.getInstance().goToView(new ClientesView());
+		});
+		this.add(clientesButton);
 
-			this.add(new JButton("Novo Exame"));
-		}
+		JButton novaConsultaButton = new JButton("Nova Consulta");
+		novaConsultaButton.addActionListener((ActionEvent e) -> {
+			Router.getInstance().goToView(new CadastroConsultaView());
+		});
+		this.add(novaConsultaButton);
+
+		this.add(new JButton("Novo Exame"));
 	}
 }

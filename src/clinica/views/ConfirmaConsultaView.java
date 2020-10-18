@@ -31,6 +31,12 @@ public class ConfirmaConsultaView extends JPanel {
 	private JTextField matriculaField, valorField;
 
 	public ConfirmaConsultaView(Medico medico, String dataHoraConsulta) {
+		JComboBox<String> pagamentoComboBox = this.addViewBody();
+		this.addViewFooter(medico, dataHoraConsulta, pagamentoComboBox);
+	}
+
+//	Adiciona corpo da view retornando o combobox de pagamento pra uso no rodape
+	private JComboBox<String> addViewBody() {
 		JPanel clienteFieldPanel = new JPanel();
 		JLabel ClienteLabel = new JLabel("Selecione o cliente:");
 		clienteFieldPanel.add(ClienteLabel);
@@ -127,8 +133,11 @@ public class ConfirmaConsultaView extends JPanel {
 				pagamentoComboBox.setEnabled(false);
 			}
 		});
+		return pagamentoComboBox;
+	}
 
-		// Rodapé da view
+// 	Adiciona rodapé da view
+	private void addViewFooter(Medico medico, String dataHoraConsulta, JComboBox<String> pagamentoComboBox) {
 		JPanel botoesFieldPanel = new JPanel();
 		JButton voltarButton = new JButton("Voltar");
 		voltarButton.addActionListener((ActionEvent e) -> {

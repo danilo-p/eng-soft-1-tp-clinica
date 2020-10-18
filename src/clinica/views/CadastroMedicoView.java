@@ -43,23 +43,26 @@ public class CadastroMedicoView extends JPanel {
 
 	public CadastroMedicoView() {
 		this.setViewLayout();
-		this.renderTitle();
-		this.renderFields();
-		this.renderFooter();
+		this.addViewHeader();
+		this.addViewBody();
+		this.addViewFooter();
 	}
 
+//	Configura o layout da view
 	private void setViewLayout() {
 		this.setBorder(new EmptyBorder(10, 10, 10, 10));
 		this.setLayout(new BorderLayout(5, 5));
 	}
 
-	private void renderTitle() {
+//	Adiciona cabeçalho da view
+	private void addViewHeader() {
 		JLabel titulo = new JLabel("Novo médico");
 		titulo.setAlignmentX(CENTER_ALIGNMENT);
 		this.add(titulo, BorderLayout.NORTH);
 	}
 
-	private void renderFields() {
+//	Adiciona corpo da view
+	private void addViewBody() {
 		JPanel fieldsPanel = new JPanel();
 		fieldsPanel.setLayout(new BoxLayout(fieldsPanel, BoxLayout.Y_AXIS));
 		fieldsPanel.setPreferredSize(new Dimension(500, 600));
@@ -191,7 +194,8 @@ public class CadastroMedicoView extends JPanel {
 		this.add(scrollPane, BorderLayout.CENTER);
 	}
 
-	private void renderFooter() {
+//	Adiciona rodape da view
+	private void addViewFooter() {
 		JPanel rodapePanel = new JPanel();
 		rodapePanel.setLayout(new GridLayout(1, 2, 0, 0));
 
@@ -261,12 +265,14 @@ public class CadastroMedicoView extends JPanel {
 		this.add(rodapePanel, BorderLayout.SOUTH);
 	}
 
+//	Valida todos os campos do formulario
 	private boolean validateFields() {
 		return (this.validateNomeField() & this.validateCpfField() & this.validateTelefoneField()
 				& this.validateHoraInicioField() & this.validateEspecialidadeComboBox()
 				& this.validateCargaHorariaField() & this.validateIntervaloField());
 	}
 
+//	Valida o campo de nome do medico
 	private boolean validateNomeField() {
 		String nome = this.nomeField.getText();
 
@@ -279,6 +285,7 @@ public class CadastroMedicoView extends JPanel {
 		return false;
 	}
 
+//	Valida o campo de CPF do medico
 	private boolean validateCpfField() {
 		String cpf = this.cpfField.getText();
 
@@ -291,6 +298,7 @@ public class CadastroMedicoView extends JPanel {
 		return false;
 	}
 
+//	Valida o campo de telefone do medico
 	private boolean validateTelefoneField() {
 		String telefone = this.telefoneField.getText();
 
@@ -303,6 +311,7 @@ public class CadastroMedicoView extends JPanel {
 		return false;
 	}
 
+//	Valida o campo de hora de inicio do turno do medico
 	private boolean validateHoraInicioField() {
 		String horaInicio = this.horaInicioField.getText();
 
@@ -315,6 +324,7 @@ public class CadastroMedicoView extends JPanel {
 		return false;
 	}
 
+//	Valida o campo de especialidade do medico
 	private boolean validateEspecialidadeComboBox() {
 		System.out.println("askdhfjaldskfj 1");
 		String especialidade = (String) this.especialidadeComboBox.getSelectedItem();
@@ -342,6 +352,7 @@ public class CadastroMedicoView extends JPanel {
 		return true;
 	}
 
+//	Valida o campo de carga horaria do medico
 	private boolean validateCargaHorariaField() {
 		int cont = 0;
 		if (seg.isSelected())
@@ -364,6 +375,7 @@ public class CadastroMedicoView extends JPanel {
 		return true;
 	}
 
+//	Valida campo de intervalo entre consultas do medico
 	private boolean validateIntervaloField() {
 		String intervalo = (String) intervaloComboBox.getSelectedItem();
 

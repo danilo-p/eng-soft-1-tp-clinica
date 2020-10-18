@@ -37,23 +37,26 @@ public class CadastroEquipamentoView extends JPanel {
 
 	public CadastroEquipamentoView() {
 		this.setViewLayout();
-		this.renderTitle();
-		this.renderFields();
-		this.renderFooter();
+		this.addViewHeader();
+		this.addViewBody();
+		this.addViewFooter();
 	}
 
+//	Configura layout da view
 	private void setViewLayout() {
 		this.setBorder(new EmptyBorder(15, 15, 15, 15));
 		this.setLayout(new BorderLayout(15, 15));
 	}
 
-	private void renderTitle() {
+//	Adiciona cabeçalho da view
+	private void addViewHeader() {
 		JLabel titulo = new JLabel("Novo equipamento");
 		titulo.setAlignmentX(CENTER_ALIGNMENT);
 		this.add(titulo, BorderLayout.NORTH);
 	}
 
-	private void renderFields() {
+//	Adiciona corpo da view
+	private void addViewBody() {
 		JPanel fieldsPanel = new JPanel();
 		fieldsPanel.setLayout(new BoxLayout(fieldsPanel, BoxLayout.Y_AXIS));
 
@@ -90,7 +93,8 @@ public class CadastroEquipamentoView extends JPanel {
 		this.add(fieldsPanel, BorderLayout.CENTER);
 	}
 
-	private void renderFooter() {
+//	Adiciona rodapé da view
+	private void addViewFooter() {
 		JPanel rodapePanel = new JPanel();
 		rodapePanel.setLayout(new GridLayout(1, 2, 0, 0));
 
@@ -120,10 +124,12 @@ public class CadastroEquipamentoView extends JPanel {
 		this.add(rodapePanel, BorderLayout.SOUTH);
 	}
 
+//	Valida todos os campos
 	private boolean validateFields() {
 		return this.validateNomeField() & this.validateEspecialidadeComboBox();
 	}
 
+//	Valida o campo de nome do equipamento
 	private boolean validateNomeField() {
 		String nome = this.nomeField.getText();
 
@@ -136,6 +142,7 @@ public class CadastroEquipamentoView extends JPanel {
 		return false;
 	}
 
+//	Valida o campo de especialidade do equipamento
 	private boolean validateEspecialidadeComboBox() {
 		String especialidade = (String) this.especialidadeComboBox.getSelectedItem();
 

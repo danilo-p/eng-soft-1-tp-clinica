@@ -5,7 +5,7 @@ import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 
 /**
- * Roteador do aplicativo usado para mudança de views.
+ * Roteador e janela principal do aplicativo usado para mudança de views.
  *
  * Esta classe implementa o padrão Singleton, para que só haja uma instância da
  * mesma durante a execução da aplicação.

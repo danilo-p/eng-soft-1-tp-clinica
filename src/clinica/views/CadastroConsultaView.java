@@ -23,60 +23,59 @@ public class CadastroConsultaView extends JPanel {
 	int especialidadeId;
 
 	public CadastroConsultaView() {
-//		Layout da view
-		{
-			this.setBorder(new EmptyBorder(15, 15, 15, 15));
-			this.setLayout(new BorderLayout(15, 15));
+		this.setViewLayout();
+		this.addViewBody();
+	}
+
+//	Configura o layout da view
+	private void setViewLayout() {
+		this.setBorder(new EmptyBorder(15, 15, 15, 15));
+		this.setLayout(new BorderLayout(15, 15));
+	}
+
+//	Adiciona corpo da view
+	private void addViewBody() {
+		// Cria o combobox com as especialidades a serem escolhidas.
+		JPanel especialidadeFieldPanel = new JPanel();
+		JLabel especialidadeLabel = new JLabel("Filtrar médicos por especialidade:");
+		especialidadeFieldPanel.add(especialidadeLabel);
+		JComboBox<String> especialidadeComboBox = new JComboBox<String>();
+		especialidadeFieldPanel.add(especialidadeComboBox);
+
+		// Preenche o combobox com as especialidades existentes no banco de dados.
+		EspecialidadesController especialidadesController = new EspecialidadesController();
+		List<Especialidade> especialidades = especialidadesController.getEspecialidades();
+		for (int i = 0; i < especialidades.size(); i++) {
+			Especialidade especialidade = especialidades.get(i);
+			especialidadeComboBox.addItem(especialidade.getNome());
 		}
 
-//		Corpo da view
-		{
-			// Cria o combobox com as especialidades a serem escolhidas.
-			JPanel especialidadeFieldPanel = new JPanel();
-			JLabel especialidadeLabel = new JLabel("Filtrar médicos por especialidade:");
-			especialidadeFieldPanel.add(especialidadeLabel);
-			JComboBox<String> especialidadeComboBox = new JComboBox<String>();
-			especialidadeFieldPanel.add(especialidadeComboBox);
-
-			// Preenche o combobox com as especialidades existentes no banco de dados.
-			EspecialidadesController especialidadesController = new EspecialidadesController();
-			List<Especialidade> especialidades = especialidadesController.getEspecialidades();
-			for (int i = 0; i < especialidades.size(); i++) {
-				Especialidade especialidade = especialidades.get(i);
-				especialidadeComboBox.addItem(especialidade.getNome());
-			}
-
-			especialidadeComboBox.addActionListener((ActionEvent e) -> {
-
-				String textoComboBox = (String) especialidadeComboBox.getSelectedItem();
-
-				Especialidade especialidade = especialidadesController.getEspecialidadesByName(textoComboBox);
-
-				especialidadeId = especialidade.getId();
-
-			});
-
-			// Somente pra buscar a especialidade que ja vem "selecionada" no ComboBox
+		especialidadeComboBox.addActionListener((ActionEvent e) -> {
 			String textoComboBox = (String) especialidadeComboBox.getSelectedItem();
 			Especialidade especialidade = especialidadesController.getEspecialidadesByName(textoComboBox);
 			especialidadeId = especialidade.getId();
+		});
 
-			JPanel botoesFieldPanel = new JPanel();
-			JButton voltarButton = new JButton("Voltar");
-			voltarButton.addActionListener((ActionEvent e) -> {
-				Router.getInstance().goToView(new HomeView());
-			});
-			botoesFieldPanel.add(voltarButton);
+		// Somente pra buscar a especialidade que ja vem "selecionada" no ComboBox
+		String textoComboBox = (String) especialidadeComboBox.getSelectedItem();
+		Especialidade especialidade = especialidadesController.getEspecialidadesByName(textoComboBox);
+		especialidadeId = especialidade.getId();
 
-			JButton BuscarButton = new JButton("Buscar");
-			BuscarButton.addActionListener((ActionEvent e) -> {
-				Router.getInstance().goToView(new ConsultaMedicosByEspecialidadesView(especialidadeId));
-			});
-			botoesFieldPanel.add(BuscarButton);
+		JPanel botoesFieldPanel = new JPanel();
+		JButton voltarButton = new JButton("Voltar");
+		voltarButton.addActionListener((ActionEvent e) -> {
+			Router.getInstance().goToView(new HomeView());
+		});
+		botoesFieldPanel.add(voltarButton);
 
-			especialidadeFieldPanel.add(botoesFieldPanel);
-			this.add(especialidadeFieldPanel);
-		}
+		JButton BuscarButton = new JButton("Buscar");
+		BuscarButton.addActionListener((ActionEvent e) -> {
+			Router.getInstance().goToView(new ConsultaMedicosByEspecialidadesView(especialidadeId));
+		});
+		botoesFieldPanel.add(BuscarButton);
+
+		especialidadeFieldPanel.add(botoesFieldPanel);
+		this.add(especialidadeFieldPanel);
 	}
 
 }

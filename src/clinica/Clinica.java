@@ -12,7 +12,7 @@ public class Clinica {
 	 * @param args the command line arguments
 	 */
 	public static void main(String[] args) {
-//		Cria a home view
+//		Cria a janela principal e vai para a home view
 		Router.getInstance().goToView(new HomeView());
 	}
 
