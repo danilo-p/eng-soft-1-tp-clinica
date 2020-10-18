@@ -78,32 +78,35 @@ CREATE TABLE pagamentos (
   FOREIGN KEY (consulta_id) REFERENCES consultas(id)
 );
 
-INSERT INTO especialidades (nome) VALUES ("Traumatologia");
-INSERT INTO especialidades (nome) VALUES ("Cardiologia");
-INSERT INTO especialidades (nome) VALUES ("Pneumologia");
-INSERT INTO especialidades (nome) VALUES ("Ortopedia");
-INSERT INTO especialidades (nome) VALUES ("Oftalmologia");
-INSERT INTO especialidades (nome) VALUES ("Gastroenterologia");
-INSERT INTO especialidades (nome) VALUES ("Urologia");
-INSERT INTO especialidades (nome) VALUES ("Otorrinolaringologia");
-INSERT INTO especialidades (nome) VALUES ("Neurologia");
-INSERT INTO especialidades (nome) VALUES ("Pediatria");
+-- Cria especialidades padrão
+INSERT INTO especialidades (nome) VALUES ("Clínico Geral");
+INSERT INTO especialidades (nome) VALUES ("Enfermeiro");
 
+-- Cria Teste RT PCR e agenda
 INSERT INTO agendas (id, carga_horaria, hora_inicio, hora_fim, tempo_intervalo)
 VALUES (3, "1,2,3", "08:00", "14:00", 30);
 INSERT INTO equipamentos (id, nome, especialidade_id, agenda_id)
-VALUES (1, "Raio X", 1, 3);
+VALUES (1, "Teste RT PCR", 2, 3);
 
+-- Cria Teste Sorológico IgG e agenda
+INSERT INTO agendas (id, carga_horaria, hora_inicio, hora_fim, tempo_intervalo)
+VALUES (4, "1,2,3", "08:00", "14:00", 30);
+INSERT INTO equipamentos (id, nome, especialidade_id, agenda_id)
+VALUES (2, "Teste Sorológico IgG", 2, 4);
+
+-- Cria Médico de exemplo e agenda
 INSERT INTO agendas (id, carga_horaria, hora_inicio, hora_fim, tempo_intervalo)
 VALUES (1, "1,2,3", "08:00", "14:00", 30);
 INSERT INTO pessoas (id, nome, cpf, telefone, tipo, especialidade_id, agenda_id)
 VALUES (1, "Fulano Medico", "123.456.789-10", "(12) 12345-1234", 1, 1, 1);
 
+-- Cria Cliente de exemplo e agenda
 INSERT INTO agendas (id, carga_horaria, hora_inicio, hora_fim, tempo_intervalo)
 VALUES (2, "1,2,3,4,5", "07:00", "20:00", 30);
 INSERT INTO pessoas (id, nome, cpf, telefone, tipo, agenda_id)
 VALUES (2, "Ciclano Cliente", "123.456.789-10", "(12) 12345-1234", 0, 2);
 
+-- Cria consultas com Teste RT PCR e pagamento por convenio 
 INSERT INTO consultas (id, data, medico_id, cliente_id)
 VALUES (1, '2018-12-17 10:00:00', 1, 2);
 INSERT INTO exames (id, consulta_id, equipamento_id)
