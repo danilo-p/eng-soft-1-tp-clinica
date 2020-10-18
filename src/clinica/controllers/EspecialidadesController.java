@@ -16,44 +16,44 @@ import java.util.List;
  * @author Bernardo Senna
  */
 public class EspecialidadesController {
-    
-    private final EspecialidadeDAO especialidadeDAO;
 
-    public EspecialidadesController() {
-        this.especialidadeDAO = new EspecialidadeDAO();
-    }
+	private final EspecialidadeDAO especialidadeDAO;
 
-    public void criarEspecialidade(String nome) {
-        Especialidade novaEspecialidade = new Especialidade();
+	public EspecialidadesController() {
+		this.especialidadeDAO = new EspecialidadeDAO();
+	}
 
-        novaEspecialidade.setNome(nome);
+	public void criarEspecialidade(String nome) {
+		Especialidade novaEspecialidade = new Especialidade();
 
-        try {
-            this.especialidadeDAO.salvar(novaEspecialidade);
-        } catch (SQLException ex) {
-            System.out.println("EspecialidadesController: Falha ao salvar especialidades.");
-            System.out.println(ex);
-        }
-    }
+		novaEspecialidade.setNome(nome);
 
-    public List getEspecialidades() {
-        try {
-            return this.especialidadeDAO.findEspecialidades();
-        } catch (SQLException ex) {
-            System.out.println("EspecialidadesController: Falha ao recuperar especialidades.");
-            System.out.println(ex);
-            return new ArrayList<>();
-        }
-    }
-	
+		try {
+			this.especialidadeDAO.salvar(novaEspecialidade);
+		} catch (SQLException ex) {
+			System.out.println("EspecialidadesController: Falha ao salvar especialidades.");
+			System.out.println(ex);
+		}
+	}
+
+	public List getEspecialidades() {
+		try {
+			return this.especialidadeDAO.findEspecialidades();
+		} catch (SQLException ex) {
+			System.out.println("EspecialidadesController: Falha ao recuperar especialidades.");
+			System.out.println(ex);
+			return new ArrayList<>();
+		}
+	}
+
 	public Especialidade getEspecialidadesByName(String nome) {
-        try {
-            return this.especialidadeDAO.findByName(nome);
-        } catch (SQLException ex) {
-            System.out.println("EspecialidadesController: Falha ao recuperar especialidades.");
-            System.out.println(ex);
-            return new Especialidade();
-        }
-    }
-    
+		try {
+			return this.especialidadeDAO.findByName(nome);
+		} catch (SQLException ex) {
+			System.out.println("EspecialidadesController: Falha ao recuperar especialidades.");
+			System.out.println(ex);
+			return new Especialidade();
+		}
+	}
+
 }

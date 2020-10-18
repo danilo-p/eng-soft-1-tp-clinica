@@ -30,64 +30,63 @@ import javax.swing.border.EmptyBorder;
  */
 public class ClientesView extends JPanel {
 
-    public ClientesView() {
-        this.setBorder(new EmptyBorder(15, 15, 15, 15));
-        this.setLayout(new BorderLayout(15, 15));
+	public ClientesView() {
+		this.setBorder(new EmptyBorder(15, 15, 15, 15));
+		this.setLayout(new BorderLayout(15, 15));
 
-        JPanel tituloPanel = new JPanel();
-        tituloPanel.setLayout(new GridLayout(1, 2, 0, 0));
+		JPanel tituloPanel = new JPanel();
+		tituloPanel.setLayout(new GridLayout(1, 2, 0, 0));
 
-        JLabel titulo = new JLabel("Clientes");
-        titulo.setAlignmentX(CENTER_ALIGNMENT);
-        tituloPanel.add(titulo);
+		JLabel titulo = new JLabel("Clientes");
+		titulo.setAlignmentX(CENTER_ALIGNMENT);
+		tituloPanel.add(titulo);
 
-        JButton novoButton = new JButton("Novo");
-        novoButton.addActionListener((ActionEvent e) -> {
-            Router.getInstance().goToView(new CadastroClienteView());
-        });
-        tituloPanel.add(novoButton);
+		JButton novoButton = new JButton("Novo");
+		novoButton.addActionListener((ActionEvent e) -> {
+			Router.getInstance().goToView(new CadastroClienteView());
+		});
+		tituloPanel.add(novoButton);
 
-        this.add(tituloPanel, BorderLayout.NORTH);
+		this.add(tituloPanel, BorderLayout.NORTH);
 
-        ClientesController clientesController = new ClientesController();
-        List clientes = clientesController.getClientes();
+		ClientesController clientesController = new ClientesController();
+		List clientes = clientesController.getClientes();
 
-        String[] titulos = {"ID", "Nome", "CPF", "Telefone"};
-        Object[][] linhas = new Object[clientes.size()][4];
-        for (int i = 0; i < clientes.size(); i++) {
-            Cliente cliente = (Cliente) clientes.get(i);
-            linhas[i][0] = cliente.getId();
-            linhas[i][1] = cliente.getNome();
-            linhas[i][2] = cliente.getCpf();
-            linhas[i][3] = cliente.getTelefone();
-        }
+		String[] titulos = { "ID", "Nome", "CPF", "Telefone" };
+		Object[][] linhas = new Object[clientes.size()][4];
+		for (int i = 0; i < clientes.size(); i++) {
+			Cliente cliente = (Cliente) clientes.get(i);
+			linhas[i][0] = cliente.getId();
+			linhas[i][1] = cliente.getNome();
+			linhas[i][2] = cliente.getCpf();
+			linhas[i][3] = cliente.getTelefone();
+		}
 
-        JTable clientesTable = new JTable(linhas, titulos);
-        clientesTable.setDefaultEditor(Object.class, null);
-        clientesTable.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mousePressed(MouseEvent mouseEvent) {
-                JTable table =(JTable) mouseEvent.getSource();
-                Point point = mouseEvent.getPoint();
-                int row = table.rowAtPoint(point);
-                if (mouseEvent.getClickCount() == 2 && table.getSelectedRow() != -1) {
-                    Cliente clienteSelecionado = (Cliente) clientes.get(table.getSelectedRow());
-                    System.out.println(clienteSelecionado.getNome());
-                    Router.getInstance().goToView(new AgendaClienteView(clienteSelecionado));
-                    // TODO: Redirecionar para a página do cliente quando tivermos uma
-                }
-            }
-        });
-        
+		JTable clientesTable = new JTable(linhas, titulos);
+		clientesTable.setDefaultEditor(Object.class, null);
+		clientesTable.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent mouseEvent) {
+				JTable table = (JTable) mouseEvent.getSource();
+				Point point = mouseEvent.getPoint();
+				int row = table.rowAtPoint(point);
+				if (mouseEvent.getClickCount() == 2 && table.getSelectedRow() != -1) {
+					Cliente clienteSelecionado = (Cliente) clientes.get(table.getSelectedRow());
+					System.out.println(clienteSelecionado.getNome());
+					Router.getInstance().goToView(new AgendaClienteView(clienteSelecionado));
+					// TODO: Redirecionar para a página do cliente quando tivermos uma
+				}
+			}
+		});
 
-        JScrollPane scrollPane = new JScrollPane(clientesTable);
-        clientesTable.setFillsViewportHeight(true);
-        this.add(scrollPane, BorderLayout.CENTER);
+		JScrollPane scrollPane = new JScrollPane(clientesTable);
+		clientesTable.setFillsViewportHeight(true);
+		this.add(scrollPane, BorderLayout.CENTER);
 
-        JButton voltarButton = new JButton("Voltar");
-        voltarButton.addActionListener((ActionEvent e) -> {
-            Router.getInstance().goToView(new HomeView());
-        });
-        this.add(voltarButton, BorderLayout.SOUTH);
-    }
+		JButton voltarButton = new JButton("Voltar");
+		voltarButton.addActionListener((ActionEvent e) -> {
+			Router.getInstance().goToView(new HomeView());
+		});
+		this.add(voltarButton, BorderLayout.SOUTH);
+	}
 }

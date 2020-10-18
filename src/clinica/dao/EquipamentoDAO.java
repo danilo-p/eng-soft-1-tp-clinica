@@ -14,127 +14,127 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
 /**
  *
  * @author Vien
  */
-public class EquipamentoDAO extends GenericDAO{
-    private EspecialidadeDAO especialidadeDAO;
-    private AgendaDAO agendaDAO;
-    
-    public EquipamentoDAO()
-    {
-        this.especialidadeDAO = new EspecialidadeDAO();
-        this.agendaDAO = new AgendaDAO();
-    }
-    
-    public void salvar(Equipamento equip) throws SQLException{
-        Agenda agenda = equip.getAgenda();
-        this.agendaDAO.salvar(agenda);
-        String insert = "INSERT INTO equipamentos(nome, especialidade_id, agenda_id) VALUES(?,?,?)";
-        int id = save(insert, equip.getNome(), equip.getEspecialidade().getId(), agenda.getId());
-        if (id > 0){
-            equip.setId(id);
-        }
-    }
-    
-    public List findEquipamentos() throws SQLException {
-        List equipamentos = new ArrayList();
+public class EquipamentoDAO extends GenericDAO {
+	private EspecialidadeDAO especialidadeDAO;
+	private AgendaDAO agendaDAO;
 
-        String select = "SELECT * FROM equipamentos";
+	public EquipamentoDAO() {
+		this.especialidadeDAO = new EspecialidadeDAO();
+		this.agendaDAO = new AgendaDAO();
+	}
 
-        Connection connection = getConnection();
-        
-        PreparedStatement stmt = connection.prepareStatement(select);
-                
-        ResultSet rs = stmt.executeQuery();
+	public void salvar(Equipamento equip) throws SQLException {
+		Agenda agenda = equip.getAgenda();
+		this.agendaDAO.salvar(agenda);
+		String insert = "INSERT INTO equipamentos(nome, especialidade_id, agenda_id) VALUES(?,?,?)";
+		int id = save(insert, equip.getNome(), equip.getEspecialidade().getId(), agenda.getId());
+		if (id > 0) {
+			equip.setId(id);
+		}
+	}
 
-        while (rs.next()) {
-            Equipamento equip = new Equipamento();
+	public List findEquipamentos() throws SQLException {
+		List equipamentos = new ArrayList();
 
-            equip.setId(rs.getInt("id"));
-            equip.setNome(rs.getString("nome"));
-            
-            int especialidadeId = rs.getInt("especialidade_id");
-            Especialidade especialidade = this.especialidadeDAO.findById(especialidadeId);
-            equip.setEspecialidade(especialidade);
+		String select = "SELECT * FROM equipamentos";
 
-            int agendaId = rs.getInt("agenda_id");
-            Agenda agenda = this.agendaDAO.findById(agendaId);
-            equip.setAgenda(agenda);
+		Connection connection = getConnection();
 
-            equipamentos.add(equip);
-        }
+		PreparedStatement stmt = connection.prepareStatement(select);
 
-        rs.close();
-        stmt.close();
-        connection.close();
+		ResultSet rs = stmt.executeQuery();
 
-        return equipamentos;
-    }
-    
-    public Equipamento findById(int id) throws SQLException {
-        String select = "SELECT * FROM equipamentos WHERE id = ?";
-        Equipamento equip = null;
-        Connection connection = getConnection();
-        PreparedStatement stmt = connection.prepareStatement(select);
+		while (rs.next()) {
+			Equipamento equip = new Equipamento();
 
-        stmt.setInt(1, id);
-        ResultSet rs = stmt.executeQuery();
+			equip.setId(rs.getInt("id"));
+			equip.setNome(rs.getString("nome"));
 
-        while (rs.next()) {
-            equip = new Equipamento();
+			int especialidadeId = rs.getInt("especialidade_id");
+			Especialidade especialidade = this.especialidadeDAO.findById(especialidadeId);
+			equip.setEspecialidade(especialidade);
 
-            equip.setId(rs.getInt("id"));
-            equip.setNome(rs.getString("nome"));
-            
-            int especialidadeId = rs.getInt("especialidade_id");
-            Especialidade especialidade = this.especialidadeDAO.findById(especialidadeId);
-            equip.setEspecialidade(especialidade);
+			int agendaId = rs.getInt("agenda_id");
+			Agenda agenda = this.agendaDAO.findById(agendaId);
+			equip.setAgenda(agenda);
 
-            int agendaId = rs.getInt("agenda_id");
-            Agenda agenda = this.agendaDAO.findById(agendaId);
-            equip.setAgenda(agenda);
-        }
+			equipamentos.add(equip);
+		}
 
-        rs.close();
-        stmt.close();
-        connection.close();
+		rs.close();
+		stmt.close();
+		connection.close();
 
-        return equip;
-    }
+		return equipamentos;
+	}
 
-    public List findByEspecialidade(Especialidade especialidade) throws SQLException {
-        List equipamentos = new ArrayList();
-        
-        String select = "SELECT * FROM equipamentos WHERE especialidade_id = ?";
-        Connection connection = getConnection();
-        PreparedStatement stmt = connection.prepareStatement(select);
+	public Equipamento findById(int id) throws SQLException {
+		String select = "SELECT * FROM equipamentos WHERE id = ?";
+		Equipamento equip = null;
+		Connection connection = getConnection();
+		PreparedStatement stmt = connection.prepareStatement(select);
 
-        stmt.setInt(1, especialidade.getId());
-        ResultSet rs = stmt.executeQuery();
+		stmt.setInt(1, id);
+		ResultSet rs = stmt.executeQuery();
 
-        while (rs.next()) {
-            Equipamento equip = new Equipamento();
+		while (rs.next()) {
+			equip = new Equipamento();
 
-            equip.setId(rs.getInt("id"));
-            equip.setNome(rs.getString("nome"));
-            
-            int especialidadeId = rs.getInt("especialidade_id");
-            Especialidade espc = this.especialidadeDAO.findById(especialidadeId);
-            equip.setEspecialidade(espc);
+			equip.setId(rs.getInt("id"));
+			equip.setNome(rs.getString("nome"));
 
-            int agendaId = rs.getInt("agenda_id");
-            Agenda agenda = this.agendaDAO.findById(agendaId);
-            equip.setAgenda(agenda);
-            
-            equipamentos.add(equip);
-        }
+			int especialidadeId = rs.getInt("especialidade_id");
+			Especialidade especialidade = this.especialidadeDAO.findById(especialidadeId);
+			equip.setEspecialidade(especialidade);
 
-        rs.close();
-        stmt.close();
-        connection.close();
+			int agendaId = rs.getInt("agenda_id");
+			Agenda agenda = this.agendaDAO.findById(agendaId);
+			equip.setAgenda(agenda);
+		}
 
-        return equipamentos;
-    }    
+		rs.close();
+		stmt.close();
+		connection.close();
+
+		return equip;
+	}
+
+	public List findByEspecialidade(Especialidade especialidade) throws SQLException {
+		List equipamentos = new ArrayList();
+
+		String select = "SELECT * FROM equipamentos WHERE especialidade_id = ?";
+		Connection connection = getConnection();
+		PreparedStatement stmt = connection.prepareStatement(select);
+
+		stmt.setInt(1, especialidade.getId());
+		ResultSet rs = stmt.executeQuery();
+
+		while (rs.next()) {
+			Equipamento equip = new Equipamento();
+
+			equip.setId(rs.getInt("id"));
+			equip.setNome(rs.getString("nome"));
+
+			int especialidadeId = rs.getInt("especialidade_id");
+			Especialidade espc = this.especialidadeDAO.findById(especialidadeId);
+			equip.setEspecialidade(espc);
+
+			int agendaId = rs.getInt("agenda_id");
+			Agenda agenda = this.agendaDAO.findById(agendaId);
+			equip.setAgenda(agenda);
+
+			equipamentos.add(equip);
+		}
+
+		rs.close();
+		stmt.close();
+		connection.close();
+
+		return equipamentos;
+	}
 }

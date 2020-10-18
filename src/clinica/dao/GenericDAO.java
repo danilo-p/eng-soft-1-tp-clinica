@@ -21,60 +21,59 @@ import javax.swing.JOptionPane;
  */
 public abstract class GenericDAO {
 
-    protected Connection getConnection() {
-        return ConnectionDatabase.getConnection();
-    }
+	protected Connection getConnection() {
+		return ConnectionDatabase.getConnection();
+	}
 
-    protected int save(String insertSql, Object... parametros) {
-        int id = -1;
-        try {
-            Connection connection = getConnection();
-            PreparedStatement pstmt = connection.prepareStatement(insertSql,
-                Statement.RETURN_GENERATED_KEYS);
+	protected int save(String insertSql, Object... parametros) {
+		int id = -1;
+		try {
+			Connection connection = getConnection();
+			PreparedStatement pstmt = connection.prepareStatement(insertSql, Statement.RETURN_GENERATED_KEYS);
 
-            for (int i = 0; i < parametros.length; i++) {
-                pstmt.setObject(i + 1, parametros[i]);
-            }
+			for (int i = 0; i < parametros.length; i++) {
+				pstmt.setObject(i + 1, parametros[i]);
+			}
 
-            pstmt.executeUpdate();
-            
-            ResultSet generatedKeys = pstmt.getGeneratedKeys();
-            if (generatedKeys.next()){ 
-                id = generatedKeys.getInt(1);
-            }
+			pstmt.executeUpdate();
 
-            pstmt.close();
-            connection.close();
-        } catch (SQLException ex) {
-            System.out.println(ex);
-        }
-        
-        return id;
-    }
+			ResultSet generatedKeys = pstmt.getGeneratedKeys();
+			if (generatedKeys.next()) {
+				id = generatedKeys.getInt(1);
+			}
 
-    protected void update(String updateSql, Object id, Object... parametros) throws SQLException {
-        Connection connection = getConnection();
-        PreparedStatement pstmt = connection.prepareStatement(updateSql);
+			pstmt.close();
+			connection.close();
+		} catch (SQLException ex) {
+			System.out.println(ex);
+		}
 
-        for (int i = 0; i < parametros.length; i++) {
-            pstmt.setObject(i + 1, parametros[i]);
-        }
-        pstmt.setObject(parametros.length + 1, id);
-        pstmt.execute();
-        pstmt.close();
-        connection.close();
-    }
+		return id;
+	}
 
-    protected void delete(String deleteSql, Object... parametros) throws SQLException {
-        Connection connection = getConnection();
-        PreparedStatement pstmt = connection.prepareStatement(deleteSql);
+	protected void update(String updateSql, Object id, Object... parametros) throws SQLException {
+		Connection connection = getConnection();
+		PreparedStatement pstmt = connection.prepareStatement(updateSql);
 
-        for (int i = 0; i < parametros.length; i++) {
-            pstmt.setObject(i + 1, parametros[i]);
-        }
+		for (int i = 0; i < parametros.length; i++) {
+			pstmt.setObject(i + 1, parametros[i]);
+		}
+		pstmt.setObject(parametros.length + 1, id);
+		pstmt.execute();
+		pstmt.close();
+		connection.close();
+	}
 
-        pstmt.execute();
-        pstmt.close();
-        connection.close();
-    }
+	protected void delete(String deleteSql, Object... parametros) throws SQLException {
+		Connection connection = getConnection();
+		PreparedStatement pstmt = connection.prepareStatement(deleteSql);
+
+		for (int i = 0; i < parametros.length; i++) {
+			pstmt.setObject(i + 1, parametros[i]);
+		}
+
+		pstmt.execute();
+		pstmt.close();
+		connection.close();
+	}
 }

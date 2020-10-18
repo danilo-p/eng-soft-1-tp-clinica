@@ -19,17 +19,17 @@ import java.sql.SQLException;
  */
 public class ConnectionDatabase {
 
-    private static final String URL_MYSQL = "jdbc:mysql://localhost/clinica";
-    private static final String DRIVER_CLASS = "com.mysql.jdbc.Driver";
-    private static final String USER = "root";
-    private static final String PASS = "";
+	private static final String URL_MYSQL = "jdbc:mysql://localhost/clinica";
+	private static final String DRIVER_CLASS = "com.mysql.jdbc.Driver";
+	private static final String USER = "root";
+	private static final String PASS = "";
 
-    public static Connection getConnection() {
-        System.out.println("Conectando ao Banco de Dados");
-        try {
-            return DriverManager.getConnection(URL_MYSQL, USER, PASS);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
+	public static Connection getConnection() {
+		System.out.println("Conectando ao Banco de Dados");
+		try {
+			return DriverManager.getConnection(URL_MYSQL, USER, PASS);
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
 }

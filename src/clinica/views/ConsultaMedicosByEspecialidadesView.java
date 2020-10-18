@@ -24,56 +24,56 @@ import javax.swing.border.EmptyBorder;
  *
  * @author Bernardo Senna
  */
-public class ConsultaMedicosByEspecialidadesView extends JPanel{
-    
-    public ConsultaMedicosByEspecialidadesView(int id){
-        
-        this.setBorder(new EmptyBorder(15, 15, 15, 15));
-        this.setLayout(new BorderLayout(15, 15));
-        
-        JPanel tituloFieldPanel = new JPanel();        
-        JLabel tituloLabel = new JLabel("Selecione o médico:");
-        tituloFieldPanel.add(tituloLabel);
-        this.add(tituloFieldPanel, BorderLayout.NORTH);
-        
-        MedicosController medicosController = new MedicosController();
-        List medicos = medicosController.getMedicosByEspecialidadeId(id);
+public class ConsultaMedicosByEspecialidadesView extends JPanel {
 
-        String[] titulos = {"ID", "Nome", "CPF", "Telefone", "Especialidade"};
-        Object[][] linhas = new Object[medicos.size()][5];
-        for (int i = 0; i < medicos.size(); i++) {
-            Medico medico = (Medico) medicos.get(i);
-            linhas[i][0] = medico.getId();
-            linhas[i][1] = medico.getNome();
-            linhas[i][2] = medico.getCpf();
-            linhas[i][3] = medico.getTelefone();
-            linhas[i][4] = medico.getEspecialidade().getNome();
-        }
-      
-        JTable medicosTable = new JTable(linhas, titulos);
-        medicosTable.setDefaultEditor(Object.class, null);
-        JPanel voltarView = this;
-        medicosTable.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mousePressed(MouseEvent mouseEvent) {
-                JTable table =(JTable) mouseEvent.getSource();
-                Point point = mouseEvent.getPoint();
-                int row = table.rowAtPoint(point);
-                if (mouseEvent.getClickCount() == 2 && table.getSelectedRow() != -1) {
-                    Medico medicoSelecionado = (Medico) medicos.get(table.getSelectedRow());
-                    Router.getInstance().goToView(new AgendaMedicoView(medicoSelecionado, voltarView, 0));
-                }
-            }
-        });
-        
-        JScrollPane scrollPane = new JScrollPane(medicosTable);
-        medicosTable.setFillsViewportHeight(true);
-        this.add(scrollPane, BorderLayout.CENTER);
-        
-        JButton voltarButton = new JButton("Voltar");
-        voltarButton.addActionListener((ActionEvent e) -> {
-            Router.getInstance().goToView(new CadastroConsultaView());
-        });
-        this.add(voltarButton, BorderLayout.SOUTH);
-    }
+	public ConsultaMedicosByEspecialidadesView(int id) {
+
+		this.setBorder(new EmptyBorder(15, 15, 15, 15));
+		this.setLayout(new BorderLayout(15, 15));
+
+		JPanel tituloFieldPanel = new JPanel();
+		JLabel tituloLabel = new JLabel("Selecione o médico:");
+		tituloFieldPanel.add(tituloLabel);
+		this.add(tituloFieldPanel, BorderLayout.NORTH);
+
+		MedicosController medicosController = new MedicosController();
+		List medicos = medicosController.getMedicosByEspecialidadeId(id);
+
+		String[] titulos = { "ID", "Nome", "CPF", "Telefone", "Especialidade" };
+		Object[][] linhas = new Object[medicos.size()][5];
+		for (int i = 0; i < medicos.size(); i++) {
+			Medico medico = (Medico) medicos.get(i);
+			linhas[i][0] = medico.getId();
+			linhas[i][1] = medico.getNome();
+			linhas[i][2] = medico.getCpf();
+			linhas[i][3] = medico.getTelefone();
+			linhas[i][4] = medico.getEspecialidade().getNome();
+		}
+
+		JTable medicosTable = new JTable(linhas, titulos);
+		medicosTable.setDefaultEditor(Object.class, null);
+		JPanel voltarView = this;
+		medicosTable.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent mouseEvent) {
+				JTable table = (JTable) mouseEvent.getSource();
+				Point point = mouseEvent.getPoint();
+				int row = table.rowAtPoint(point);
+				if (mouseEvent.getClickCount() == 2 && table.getSelectedRow() != -1) {
+					Medico medicoSelecionado = (Medico) medicos.get(table.getSelectedRow());
+					Router.getInstance().goToView(new AgendaMedicoView(medicoSelecionado, voltarView, 0));
+				}
+			}
+		});
+
+		JScrollPane scrollPane = new JScrollPane(medicosTable);
+		medicosTable.setFillsViewportHeight(true);
+		this.add(scrollPane, BorderLayout.CENTER);
+
+		JButton voltarButton = new JButton("Voltar");
+		voltarButton.addActionListener((ActionEvent e) -> {
+			Router.getInstance().goToView(new CadastroConsultaView());
+		});
+		this.add(voltarButton, BorderLayout.SOUTH);
+	}
 }

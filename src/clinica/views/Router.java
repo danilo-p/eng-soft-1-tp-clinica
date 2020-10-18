@@ -9,31 +9,32 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 /**
- * Roteador do aplicativo usado para mudança de views
+ * Roteador do aplicativo usado para mudança de views.
  *
  * @author danilo
  */
 public class Router extends JFrame {
 
-    private static Router uniqueInstance = null;
+	private static final long serialVersionUID = 1L;
+	private static Router uniqueInstance = null;
 
-    public static Router getInstance() {
-        if (uniqueInstance == null) {
-            uniqueInstance = new Router();
-        }
-        return uniqueInstance;
-    }
+	public static Router getInstance() {
+		if (uniqueInstance == null) {
+			uniqueInstance = new Router();
+		}
+		return uniqueInstance;
+	}
 
-    public Router() {
-        super();
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(500, 500);
-        this.setVisible(true);
+	public Router() {
+		super();
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setSize(500, 500);
+		this.setVisible(true);
 
-    }
+	}
 
-    public void goToView(JPanel view) {
-        this.setContentPane(view);
-        this.revalidate();
-    }
+	public void goToView(JPanel view) {
+		this.setContentPane(view);
+		this.revalidate();
+	}
 }

@@ -18,47 +18,47 @@ import java.util.List;
  */
 public class ClientesController {
 
-    private final ClienteDAO clienteDAO;
+	private final ClienteDAO clienteDAO;
 
-    public ClientesController() {
-        this.clienteDAO = new ClienteDAO();
-    }
+	public ClientesController() {
+		this.clienteDAO = new ClienteDAO();
+	}
 
-    public void criarCliente(String nome, String cpf, String telefone) {
-        Cliente novoCliente = new Cliente();
+	public void criarCliente(String nome, String cpf, String telefone) {
+		Cliente novoCliente = new Cliente();
 
-        novoCliente.setNome(nome);
-        novoCliente.setCpf(cpf);
-        novoCliente.setTelefone(telefone);
+		novoCliente.setNome(nome);
+		novoCliente.setCpf(cpf);
+		novoCliente.setTelefone(telefone);
 
-        Agenda novaAgenda = new Agenda();
-        novoCliente.setAgenda(novaAgenda);
+		Agenda novaAgenda = new Agenda();
+		novoCliente.setAgenda(novaAgenda);
 
-        try {
-            this.clienteDAO.salvar(novoCliente);
-        } catch (SQLException ex) {
-            System.out.println("ClientesController: Falha ao salvar cliente.");
-            System.out.println(ex);
-        }
-    }
+		try {
+			this.clienteDAO.salvar(novoCliente);
+		} catch (SQLException ex) {
+			System.out.println("ClientesController: Falha ao salvar cliente.");
+			System.out.println(ex);
+		}
+	}
 
-    public List getClientes() {
-        try {
-            return this.clienteDAO.findClientes();
-        } catch (SQLException ex) {
-            System.out.println("ClientesController: Falha ao recuperar clientes.");
-            System.out.println(ex);
-            return new ArrayList<>();
-        }
-    }
-    
-    public Cliente getClienteByName(String nome) {
-        try {
-            return this.clienteDAO.findByName(nome);
-        } catch (SQLException ex) {
-            System.out.println("ClientesController: Falha ao recuperar cliente.");
-            System.out.println(ex);
-            return new Cliente();
-        }
-    }
+	public List getClientes() {
+		try {
+			return this.clienteDAO.findClientes();
+		} catch (SQLException ex) {
+			System.out.println("ClientesController: Falha ao recuperar clientes.");
+			System.out.println(ex);
+			return new ArrayList<>();
+		}
+	}
+
+	public Cliente getClienteByName(String nome) {
+		try {
+			return this.clienteDAO.findByName(nome);
+		} catch (SQLException ex) {
+			System.out.println("ClientesController: Falha ao recuperar cliente.");
+			System.out.println(ex);
+			return new Cliente();
+		}
+	}
 }

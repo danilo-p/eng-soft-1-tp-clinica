@@ -22,110 +22,110 @@ import java.util.List;
  * @author danilo
  */
 public class ClienteDAO extends GenericDAO {
-    
-    private final PessoaDAO pessoaDAO;
-    private final AgendaDAO agendaDAO;
-    
-    public ClienteDAO() {
-        this.pessoaDAO = new PessoaDAO();
-        this.agendaDAO = new AgendaDAO();
-    }
 
-    public void salvar(Cliente cliente) throws SQLException {
-        this.pessoaDAO.salvar(cliente);
-    }
+	private final PessoaDAO pessoaDAO;
+	private final AgendaDAO agendaDAO;
 
-    public List findClientes() throws SQLException {
-        List pessoas = new ArrayList();
+	public ClienteDAO() {
+		this.pessoaDAO = new PessoaDAO();
+		this.agendaDAO = new AgendaDAO();
+	}
 
-        String select = "SELECT * FROM pessoas WHERE tipo = 0";
+	public void salvar(Cliente cliente) throws SQLException {
+		this.pessoaDAO.salvar(cliente);
+	}
 
-        Connection connection = getConnection();
-        PreparedStatement stmt = connection.prepareStatement(select);
-        
-        ResultSet rs = stmt.executeQuery();
+	public List findClientes() throws SQLException {
+		List pessoas = new ArrayList();
 
-        while (rs.next()) {
-            Cliente cliente = new Cliente();
+		String select = "SELECT * FROM pessoas WHERE tipo = 0";
 
-            cliente.setId(rs.getInt("id"));
-            cliente.setNome(rs.getString("nome"));
-            cliente.setCpf(rs.getString("cpf"));
-            cliente.setTelefone(rs.getString("telefone"));
-            cliente.setTipo(rs.getInt("tipo"));
+		Connection connection = getConnection();
+		PreparedStatement stmt = connection.prepareStatement(select);
 
-            int agendaId = rs.getInt("agenda_id");
-            Agenda agenda = this.agendaDAO.findById(agendaId);
-            cliente.setAgenda(agenda);
+		ResultSet rs = stmt.executeQuery();
 
-            pessoas.add(cliente);
-        }
+		while (rs.next()) {
+			Cliente cliente = new Cliente();
 
-        rs.close();
-        stmt.close();
-        connection.close();
+			cliente.setId(rs.getInt("id"));
+			cliente.setNome(rs.getString("nome"));
+			cliente.setCpf(rs.getString("cpf"));
+			cliente.setTelefone(rs.getString("telefone"));
+			cliente.setTipo(rs.getInt("tipo"));
 
-        return pessoas;
-    }
-    
-    public Cliente findById(int id) throws SQLException {
-        String select = "SELECT * FROM pessoas WHERE id = ? AND tipo = 0";
-        Cliente cliente = null;
-        Connection connection = getConnection();
-        PreparedStatement stmt = connection.prepareStatement(select);
+			int agendaId = rs.getInt("agenda_id");
+			Agenda agenda = this.agendaDAO.findById(agendaId);
+			cliente.setAgenda(agenda);
 
-        stmt.setInt(1, id);
-        ResultSet rs = stmt.executeQuery();
+			pessoas.add(cliente);
+		}
 
-        while (rs.next()) {
-            cliente = new Cliente();
+		rs.close();
+		stmt.close();
+		connection.close();
 
-            cliente.setId(rs.getInt("id"));
-            cliente.setId(rs.getInt("id"));
-            cliente.setNome(rs.getString("nome"));
-            cliente.setCpf(rs.getString("cpf"));
-            cliente.setTelefone(rs.getString("telefone"));
-            cliente.setTipo(rs.getInt("tipo"));
-            
-            int agendaId = rs.getInt("agenda_id");
-            Agenda agenda = this.agendaDAO.findById(agendaId);
-            cliente.setAgenda(agenda);
-        }
+		return pessoas;
+	}
 
-        rs.close();
-        stmt.close();
-        connection.close();
+	public Cliente findById(int id) throws SQLException {
+		String select = "SELECT * FROM pessoas WHERE id = ? AND tipo = 0";
+		Cliente cliente = null;
+		Connection connection = getConnection();
+		PreparedStatement stmt = connection.prepareStatement(select);
 
-        return cliente;
-    }
-    
-     public Cliente findByName(String nome) throws SQLException {
-        String select = "SELECT * FROM pessoas WHERE nome = ? AND tipo = 0";
-        Cliente cliente = null;
-        Connection connection = getConnection();
-        PreparedStatement stmt = connection.prepareStatement(select);
+		stmt.setInt(1, id);
+		ResultSet rs = stmt.executeQuery();
 
-        stmt.setString(1, nome);
-        ResultSet rs = stmt.executeQuery();
+		while (rs.next()) {
+			cliente = new Cliente();
 
-        while (rs.next()) {
-            cliente = new Cliente();
+			cliente.setId(rs.getInt("id"));
+			cliente.setId(rs.getInt("id"));
+			cliente.setNome(rs.getString("nome"));
+			cliente.setCpf(rs.getString("cpf"));
+			cliente.setTelefone(rs.getString("telefone"));
+			cliente.setTipo(rs.getInt("tipo"));
 
-            cliente.setId(rs.getInt("id"));
-            cliente.setNome(rs.getString("nome"));
-            cliente.setCpf(rs.getString("cpf"));
-            cliente.setTelefone(rs.getString("telefone"));
-            cliente.setTipo(rs.getInt("tipo"));
-            
-            int agendaId = rs.getInt("agenda_id");
-            Agenda agenda = this.agendaDAO.findById(agendaId);
-            cliente.setAgenda(agenda);
-        }
+			int agendaId = rs.getInt("agenda_id");
+			Agenda agenda = this.agendaDAO.findById(agendaId);
+			cliente.setAgenda(agenda);
+		}
 
-        rs.close();
-        stmt.close();
-        connection.close();
+		rs.close();
+		stmt.close();
+		connection.close();
 
-        return cliente;
-    }
+		return cliente;
+	}
+
+	public Cliente findByName(String nome) throws SQLException {
+		String select = "SELECT * FROM pessoas WHERE nome = ? AND tipo = 0";
+		Cliente cliente = null;
+		Connection connection = getConnection();
+		PreparedStatement stmt = connection.prepareStatement(select);
+
+		stmt.setString(1, nome);
+		ResultSet rs = stmt.executeQuery();
+
+		while (rs.next()) {
+			cliente = new Cliente();
+
+			cliente.setId(rs.getInt("id"));
+			cliente.setNome(rs.getString("nome"));
+			cliente.setCpf(rs.getString("cpf"));
+			cliente.setTelefone(rs.getString("telefone"));
+			cliente.setTipo(rs.getInt("tipo"));
+
+			int agendaId = rs.getInt("agenda_id");
+			Agenda agenda = this.agendaDAO.findById(agendaId);
+			cliente.setAgenda(agenda);
+		}
+
+		rs.close();
+		stmt.close();
+		connection.close();
+
+		return cliente;
+	}
 }

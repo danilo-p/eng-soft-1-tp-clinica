@@ -12,62 +12,62 @@ package clinica.models;
  */
 public class Pessoa extends Agendavel {
 
-    private int id;
-    private String nome;
-    private String cpf;
-    private String telefone;
-    private int tipo;
+	private int id;
+	private String nome;
+	private String cpf;
+	private String telefone;
+	private int tipo;
 
-    public Pessoa() {
-        super();
-    }
+	public Pessoa() {
+		super();
+	}
 
-    public Pessoa(String nome, String cpf, String telefone, int tipo) {
-        super();
-        this.nome = nome;
-        this.cpf = cpf;
-        this.telefone = telefone;
-        this.tipo = tipo;
-    }
+	public Pessoa(String nome, String cpf, String telefone, int tipo) {
+		super();
+		this.nome = nome;
+		this.cpf = cpf;
+		this.telefone = telefone;
+		this.tipo = tipo;
+	}
 
-    public int getId() {
-        return id;
-    }
+	public int getId() {
+		return id;
+	}
 
-    public void setId(int id) {
-        this.id = id;
-    }
+	public void setId(int id) {
+		this.id = id;
+	}
 
-    public String getNome() {
-        return nome;
-    }
+	public String getNome() {
+		return nome;
+	}
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
-    public String getCpf() {
-        return cpf;
-    }
+	public String getCpf() {
+		return cpf;
+	}
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
 
-    public String getTelefone() {
-        return telefone;
-    }
+	public String getTelefone() {
+		return telefone;
+	}
 
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
 
-    public int getTipo() {
-        return tipo;
-    }
+	public int getTipo() {
+		return tipo;
+	}
 
-    public void setTipo(int tipo) {
-        this.tipo = tipo;
-    }
+	public void setTipo(int tipo) {
+		this.tipo = tipo;
+	}
 
 }

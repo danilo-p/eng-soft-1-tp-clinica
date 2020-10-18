@@ -13,20 +13,20 @@ package clinica.models;
  */
 public abstract class Agendavel {
 
-    protected Agenda agenda;
+	protected Agenda agenda;
 
-    public Agendavel() {
-    }
+	public Agendavel() {
+	}
 
-    public Agendavel(Agenda agenda) {
-        this.agenda = agenda;
-    }
+	public Agendavel(Agenda agenda) {
+		this.agenda = agenda;
+	}
 
-    public Agenda getAgenda() {
-        return agenda;
-    }
+	public Agenda getAgenda() {
+		return agenda;
+	}
 
-    public void setAgenda(Agenda agenda) {
-        this.agenda = agenda;
-    }
+	public void setAgenda(Agenda agenda) {
+		this.agenda = agenda;
+	}
 }

@@ -17,91 +17,91 @@ import java.util.List;
  *
  * @author vien
  */
-public class EspecialidadeDAO extends GenericDAO{
-    
-    public void salvar(Especialidade especialidade) throws SQLException {
-        String insert = "INSERT INTO especialidades(nome) VALUES(?)";
-        int id = save(insert, especialidade.getNome());
-        if (id > 0) {
-            especialidade.setId(id);
-        }
-    }
+public class EspecialidadeDAO extends GenericDAO {
 
-    public void alterar(Especialidade especialidade) throws SQLException {
-        String update = "UPDATE especialidades SET nome = ? WHERE id = ?";
-        update(update, especialidade.getId(), especialidade.getNome());
-    }
-    
-    public Especialidade findById(int id) throws SQLException {
-        String select = "SELECT * FROM especialidades WHERE id = ?";
-        Especialidade especialidade = null;
-        Connection connection = getConnection();
-        PreparedStatement stmt = connection.prepareStatement(select);
+	public void salvar(Especialidade especialidade) throws SQLException {
+		String insert = "INSERT INTO especialidades(nome) VALUES(?)";
+		int id = save(insert, especialidade.getNome());
+		if (id > 0) {
+			especialidade.setId(id);
+		}
+	}
 
-        stmt.setInt(1, id);
-        ResultSet rs = stmt.executeQuery();
+	public void alterar(Especialidade especialidade) throws SQLException {
+		String update = "UPDATE especialidades SET nome = ? WHERE id = ?";
+		update(update, especialidade.getId(), especialidade.getNome());
+	}
 
-        while (rs.next()) {
-            especialidade = new Especialidade();
-            especialidade.setId(rs.getInt("id"));
-            especialidade.setNome(rs.getString("nome"));
-        }
+	public Especialidade findById(int id) throws SQLException {
+		String select = "SELECT * FROM especialidades WHERE id = ?";
+		Especialidade especialidade = null;
+		Connection connection = getConnection();
+		PreparedStatement stmt = connection.prepareStatement(select);
 
-        rs.close();
-        stmt.close();
-        connection.close();
+		stmt.setInt(1, id);
+		ResultSet rs = stmt.executeQuery();
 
-        return especialidade;
-    }
-    
-    public Especialidade findByName(String nome) throws SQLException {
-        String select = "SELECT * FROM especialidades WHERE nome = ?";
-        Especialidade especialidade = null;
-        Connection connection = getConnection();
-        PreparedStatement stmt = connection.prepareStatement(select);
+		while (rs.next()) {
+			especialidade = new Especialidade();
+			especialidade.setId(rs.getInt("id"));
+			especialidade.setNome(rs.getString("nome"));
+		}
 
-        stmt.setString(1, nome);
-        ResultSet rs = stmt.executeQuery();
+		rs.close();
+		stmt.close();
+		connection.close();
 
-        while (rs.next()) {
-            especialidade = new Especialidade();
-            especialidade.setId(rs.getInt("id"));
-            especialidade.setNome(rs.getString("nome"));
-        }
+		return especialidade;
+	}
 
-        rs.close();
-        stmt.close();
-        connection.close();
+	public Especialidade findByName(String nome) throws SQLException {
+		String select = "SELECT * FROM especialidades WHERE nome = ?";
+		Especialidade especialidade = null;
+		Connection connection = getConnection();
+		PreparedStatement stmt = connection.prepareStatement(select);
 
-        return especialidade;
-    }
-    
-    public List findEspecialidades() throws SQLException {
-        
-        List listEspecialidades = new ArrayList();
+		stmt.setString(1, nome);
+		ResultSet rs = stmt.executeQuery();
 
-        String select = "SELECT * FROM especialidades";
+		while (rs.next()) {
+			especialidade = new Especialidade();
+			especialidade.setId(rs.getInt("id"));
+			especialidade.setNome(rs.getString("nome"));
+		}
 
-        Connection connection = getConnection();
-        
-        PreparedStatement stmt = connection.prepareStatement(select);
-                
-        ResultSet rs = stmt.executeQuery();
+		rs.close();
+		stmt.close();
+		connection.close();
 
-        while (rs.next()) {
-            Especialidade especialidade = new Especialidade();
+		return especialidade;
+	}
 
-            especialidade.setId(rs.getInt("id"));
-            especialidade.setNome(rs.getString("nome"));
+	public List findEspecialidades() throws SQLException {
 
-            listEspecialidades.add(especialidade);
-        }
+		List listEspecialidades = new ArrayList();
 
-        rs.close();
-        stmt.close();
-        connection.close();
+		String select = "SELECT * FROM especialidades";
 
-        return listEspecialidades;
-    }
+		Connection connection = getConnection();
+
+		PreparedStatement stmt = connection.prepareStatement(select);
+
+		ResultSet rs = stmt.executeQuery();
+
+		while (rs.next()) {
+			Especialidade especialidade = new Especialidade();
+
+			especialidade.setId(rs.getInt("id"));
+			especialidade.setNome(rs.getString("nome"));
+
+			listEspecialidades.add(especialidade);
+		}
+
+		rs.close();
+		stmt.close();
+		connection.close();
+
+		return listEspecialidades;
+	}
 
 }

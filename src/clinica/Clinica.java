@@ -15,11 +15,11 @@ import clinica.views.Router;
  */
 public class Clinica {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        Router.getInstance().goToView(new HomeView());
-    }
+	/**
+	 * @param args the command line arguments
+	 */
+	public static void main(String[] args) {
+		Router.getInstance().goToView(new HomeView());
+	}
 
 }

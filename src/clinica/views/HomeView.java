@@ -18,28 +18,28 @@ import javax.swing.border.EmptyBorder;
  */
 public class HomeView extends JPanel {
 
-    public HomeView() {
-        this.setBorder(new EmptyBorder(15, 15, 15, 15));
-        this.setLayout(new GridLayout(2, 2, 15, 15));
-        
-        JButton medicosButton = new JButton("Médicos");
-        medicosButton.addActionListener((ActionEvent e) -> {
-            Router.getInstance().goToView(new MedicosView());
-        });
-        this.add(medicosButton);
+	public HomeView() {
+		this.setBorder(new EmptyBorder(15, 15, 15, 15));
+		this.setLayout(new GridLayout(2, 2, 15, 15));
 
-        JButton clientesButton = new JButton("Clientes");
-        clientesButton.addActionListener((ActionEvent e) -> {
-            Router.getInstance().goToView(new ClientesView());
-        });
-        this.add(clientesButton);
-        
-        JButton novaConsultaButton = new JButton("Nova Consulta");
-        novaConsultaButton.addActionListener((ActionEvent e) -> {
-            Router.getInstance().goToView(new CadastroConsultaView());
-        });
-        this.add(novaConsultaButton);
+		JButton medicosButton = new JButton("Médicos");
+		medicosButton.addActionListener((ActionEvent e) -> {
+			Router.getInstance().goToView(new MedicosView());
+		});
+		this.add(medicosButton);
 
-        this.add(new JButton("Novo Exame"));
-    }
+		JButton clientesButton = new JButton("Clientes");
+		clientesButton.addActionListener((ActionEvent e) -> {
+			Router.getInstance().goToView(new ClientesView());
+		});
+		this.add(clientesButton);
+
+		JButton novaConsultaButton = new JButton("Nova Consulta");
+		novaConsultaButton.addActionListener((ActionEvent e) -> {
+			Router.getInstance().goToView(new CadastroConsultaView());
+		});
+		this.add(novaConsultaButton);
+
+		this.add(new JButton("Novo Exame"));
+	}
 }

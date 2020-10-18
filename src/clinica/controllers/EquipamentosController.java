@@ -20,33 +20,33 @@ import java.util.List;
  */
 public class EquipamentosController {
 
-    private final EquipamentoDAO equipamentoDAO;
+	private final EquipamentoDAO equipamentoDAO;
 
-    public EquipamentosController() {
-        this.equipamentoDAO = new EquipamentoDAO();
-    }
+	public EquipamentosController() {
+		this.equipamentoDAO = new EquipamentoDAO();
+	}
 
-    public void criarEquipamento(String nome, Especialidade especialidade) {
-        Equipamento novoEquipamento = new Equipamento(nome, especialidade);
+	public void criarEquipamento(String nome, Especialidade especialidade) {
+		Equipamento novoEquipamento = new Equipamento(nome, especialidade);
 
-        Agenda novaAgenda = new Agenda();
-        novoEquipamento.setAgenda(novaAgenda);
+		Agenda novaAgenda = new Agenda();
+		novoEquipamento.setAgenda(novaAgenda);
 
-        try {
-            this.equipamentoDAO.salvar(novoEquipamento);
-        } catch (SQLException ex) {
-            System.out.println("EquipamentosController: Falha ao salvar equipamento.");
-            System.out.println(ex);
-        }
-    }
+		try {
+			this.equipamentoDAO.salvar(novoEquipamento);
+		} catch (SQLException ex) {
+			System.out.println("EquipamentosController: Falha ao salvar equipamento.");
+			System.out.println(ex);
+		}
+	}
 
-    public List getEquipamentos() {
-        try {
-            return this.equipamentoDAO.findEquipamentos();
-        } catch (SQLException ex) {
-            System.out.println("EquipamentosController: Falha ao recuperar equipamentos.");
-            System.out.println(ex);
-            return new ArrayList<>();
-        }
-    }
+	public List getEquipamentos() {
+		try {
+			return this.equipamentoDAO.findEquipamentos();
+		} catch (SQLException ex) {
+			System.out.println("EquipamentosController: Falha ao recuperar equipamentos.");
+			System.out.println(ex);
+			return new ArrayList<>();
+		}
+	}
 }

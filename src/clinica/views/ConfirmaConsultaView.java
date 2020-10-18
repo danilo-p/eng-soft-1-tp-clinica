@@ -27,141 +27,143 @@ import javax.swing.JTextField;
  */
 public class ConfirmaConsultaView extends JPanel {
 
-    Cliente cliente;
-    String textoClienteComboBox, textoPagamentoComboBox, textoMatriculaConveniado;
-    int tipoPagamento;
-    private JTextField matriculaField, valorField;
+	Cliente cliente;
+	String textoClienteComboBox, textoPagamentoComboBox, textoMatriculaConveniado;
+	int tipoPagamento;
+	private JTextField matriculaField, valorField;
 
-    public ConfirmaConsultaView(Medico medico, String dataHoraConsulta) {
+	public ConfirmaConsultaView(Medico medico, String dataHoraConsulta) {
 
-        JPanel clienteFieldPanel = new JPanel();
-        JLabel ClienteLabel = new JLabel("Selecione o cliente:");
-        clienteFieldPanel.add(ClienteLabel);
-        JComboBox<String> clienteComboBox = new JComboBox<String>();
-        clienteFieldPanel.add(clienteComboBox);
+		JPanel clienteFieldPanel = new JPanel();
+		JLabel ClienteLabel = new JLabel("Selecione o cliente:");
+		clienteFieldPanel.add(ClienteLabel);
+		JComboBox<String> clienteComboBox = new JComboBox<String>();
+		clienteFieldPanel.add(clienteComboBox);
 
-        ClientesController clientesController = new ClientesController();
-        List clientes = clientesController.getClientes();
-        for (int i = 0; i < clientes.size(); i++) {
-            Cliente cliente = (Cliente) clientes.get(i);
-            clienteComboBox.addItem(cliente.getNome());
-        }
-        this.add(clienteFieldPanel, BorderLayout.NORTH);
+		ClientesController clientesController = new ClientesController();
+		List clientes = clientesController.getClientes();
+		for (int i = 0; i < clientes.size(); i++) {
+			Cliente cliente = (Cliente) clientes.get(i);
+			clienteComboBox.addItem(cliente.getNome());
+		}
+		this.add(clienteFieldPanel, BorderLayout.NORTH);
 
-        //PEGA TEXTO DO COMBOBOX DE CLIENTES E GERA UMA VARIAVEL COM OS DADOS DAQUELE CLIENTE.
-        cliente = (Cliente) clientes.get(0);
-        clienteComboBox.addActionListener((ActionEvent e) -> {
+		// PEGA TEXTO DO COMBOBOX DE CLIENTES E GERA UMA VARIAVEL COM OS DADOS DAQUELE
+		// CLIENTE.
+		cliente = (Cliente) clientes.get(0);
+		clienteComboBox.addActionListener((ActionEvent e) -> {
 
-            textoClienteComboBox = (String) clienteComboBox.getSelectedItem();
+			textoClienteComboBox = (String) clienteComboBox.getSelectedItem();
 
-            cliente = clientesController.getClienteByName(textoClienteComboBox);
+			cliente = clientesController.getClienteByName(textoClienteComboBox);
 
-        });
+		});
 
-        JPanel tipoFieldPanel = new JPanel();
-        JLabel PagamentoLabel = new JLabel("Selecione o tipo de pagamento:");
-        tipoFieldPanel.add(PagamentoLabel);
-        JComboBox<String> tipoPagamentoComboBox = new JComboBox<String>();
-        tipoFieldPanel.add(tipoPagamentoComboBox);
+		JPanel tipoFieldPanel = new JPanel();
+		JLabel PagamentoLabel = new JLabel("Selecione o tipo de pagamento:");
+		tipoFieldPanel.add(PagamentoLabel);
+		JComboBox<String> tipoPagamentoComboBox = new JComboBox<String>();
+		tipoFieldPanel.add(tipoPagamentoComboBox);
 
-        this.add(tipoFieldPanel, BorderLayout.CENTER);
+		this.add(tipoFieldPanel, BorderLayout.CENTER);
 
-        tipoPagamentoComboBox.addItem("Particular");
-        tipoPagamentoComboBox.addItem("Convenio");
+		tipoPagamentoComboBox.addItem("Particular");
+		tipoPagamentoComboBox.addItem("Convenio");
 
-        JPanel escolhaFieldPanel = new JPanel();
-        JLabel PagamentoLabel2 = new JLabel("Selecione a forma de pagamento/convenio:");
-        escolhaFieldPanel.add(PagamentoLabel2);
-        JComboBox<String> pagamentoComboBox = new JComboBox<String>();
-        pagamentoComboBox.setEnabled(false);
-        escolhaFieldPanel.add(pagamentoComboBox);
+		JPanel escolhaFieldPanel = new JPanel();
+		JLabel PagamentoLabel2 = new JLabel("Selecione a forma de pagamento/convenio:");
+		escolhaFieldPanel.add(PagamentoLabel2);
+		JComboBox<String> pagamentoComboBox = new JComboBox<String>();
+		pagamentoComboBox.setEnabled(false);
+		escolhaFieldPanel.add(pagamentoComboBox);
 
-        this.add(escolhaFieldPanel, BorderLayout.CENTER);
+		this.add(escolhaFieldPanel, BorderLayout.CENTER);
 
-        JPanel matriculaFieldPanel = new JPanel();
-        JLabel matriculaLabel = new JLabel("Digite a matricula do conveniado:");
-        matriculaFieldPanel.add(matriculaLabel);
-        matriculaField = new JTextField(1);
-        matriculaField.setColumns(21);
-        matriculaField.setEnabled(false);
-        matriculaField.setBackground(Color.LIGHT_GRAY);
-        matriculaFieldPanel.add(matriculaField);
+		JPanel matriculaFieldPanel = new JPanel();
+		JLabel matriculaLabel = new JLabel("Digite a matricula do conveniado:");
+		matriculaFieldPanel.add(matriculaLabel);
+		matriculaField = new JTextField(1);
+		matriculaField.setColumns(21);
+		matriculaField.setEnabled(false);
+		matriculaField.setBackground(Color.LIGHT_GRAY);
+		matriculaFieldPanel.add(matriculaField);
 
-        this.add(matriculaFieldPanel, BorderLayout.CENTER);
+		this.add(matriculaFieldPanel, BorderLayout.CENTER);
 
-        JPanel valorFieldPanel = new JPanel();
-        JLabel valorLabel = new JLabel("Valor (R$):");
-        valorFieldPanel.add(valorLabel);
-        valorField = new JTextField(1);
-        valorField.setColumns(21);
-        valorFieldPanel.add(valorField);
+		JPanel valorFieldPanel = new JPanel();
+		JLabel valorLabel = new JLabel("Valor (R$):");
+		valorFieldPanel.add(valorLabel);
+		valorField = new JTextField(1);
+		valorField.setColumns(21);
+		valorFieldPanel.add(valorField);
 
-        this.add(valorFieldPanel, BorderLayout.CENTER);
+		this.add(valorFieldPanel, BorderLayout.CENTER);
 
-        textoPagamentoComboBox = (String) tipoPagamentoComboBox.getSelectedItem();
-        tipoPagamentoComboBox.addActionListener((ActionEvent e) -> {
+		textoPagamentoComboBox = (String) tipoPagamentoComboBox.getSelectedItem();
+		tipoPagamentoComboBox.addActionListener((ActionEvent e) -> {
 
-            textoPagamentoComboBox = (String) tipoPagamentoComboBox.getSelectedItem();
+			textoPagamentoComboBox = (String) tipoPagamentoComboBox.getSelectedItem();
 
-            if ("Particular".equals(textoPagamentoComboBox)) {
-                pagamentoComboBox.setEnabled(true);
-                pagamentoComboBox.removeAllItems();
-                pagamentoComboBox.addItem("Cartao Credito");
-                pagamentoComboBox.addItem("Cartao Debito");
-                pagamentoComboBox.addItem("Cheque");
-                pagamentoComboBox.addItem("Dinheiro");
+			if ("Particular".equals(textoPagamentoComboBox)) {
+				pagamentoComboBox.setEnabled(true);
+				pagamentoComboBox.removeAllItems();
+				pagamentoComboBox.addItem("Cartao Credito");
+				pagamentoComboBox.addItem("Cartao Debito");
+				pagamentoComboBox.addItem("Cheque");
+				pagamentoComboBox.addItem("Dinheiro");
 
-                matriculaField.setEnabled(false);
-                matriculaField.setBackground(Color.LIGHT_GRAY);
+				matriculaField.setEnabled(false);
+				matriculaField.setBackground(Color.LIGHT_GRAY);
 
-                tipoPagamento = 0;//pagamento por particular
-            } else if ("Convenio".equals(textoPagamentoComboBox)) {
-                pagamentoComboBox.setEnabled(true);
-                pagamentoComboBox.removeAllItems();
-                pagamentoComboBox.addItem("Amil");
-                pagamentoComboBox.addItem("Bradesco");
-                pagamentoComboBox.addItem("Golden Cross");
-                pagamentoComboBox.addItem("Promed");
-                pagamentoComboBox.addItem("Unimed");
+				tipoPagamento = 0;// pagamento por particular
+			} else if ("Convenio".equals(textoPagamentoComboBox)) {
+				pagamentoComboBox.setEnabled(true);
+				pagamentoComboBox.removeAllItems();
+				pagamentoComboBox.addItem("Amil");
+				pagamentoComboBox.addItem("Bradesco");
+				pagamentoComboBox.addItem("Golden Cross");
+				pagamentoComboBox.addItem("Promed");
+				pagamentoComboBox.addItem("Unimed");
 
-                matriculaField.setEnabled(true);
-                matriculaField.setBackground(Color.WHITE);
+				matriculaField.setEnabled(true);
+				matriculaField.setBackground(Color.WHITE);
 
-                tipoPagamento = 1;//pagamento por convenio
-            } else {
-                pagamentoComboBox.setEnabled(false);
-            }
-        });
+				tipoPagamento = 1;// pagamento por convenio
+			} else {
+				pagamentoComboBox.setEnabled(false);
+			}
+		});
 
-        //RODAPÉ....
-        JPanel botoesFieldPanel = new JPanel();
-        JButton voltarButton = new JButton("Voltar");
-        voltarButton.addActionListener((ActionEvent e) -> {
-            Router.getInstance().goToView(new AgendaMedicoView(medico, this, 0));
-        });
-        botoesFieldPanel.add(voltarButton);
+		// RODAPÉ....
+		JPanel botoesFieldPanel = new JPanel();
+		JButton voltarButton = new JButton("Voltar");
+		voltarButton.addActionListener((ActionEvent e) -> {
+			Router.getInstance().goToView(new AgendaMedicoView(medico, this, 0));
+		});
+		botoesFieldPanel.add(voltarButton);
 
-        JButton confirmarButton = new JButton("Confirmar");
-        confirmarButton.addActionListener((ActionEvent e) -> {
-            PagamentosController pagamentosController = new PagamentosController();
+		JButton confirmarButton = new JButton("Confirmar");
+		confirmarButton.addActionListener((ActionEvent e) -> {
+			PagamentosController pagamentosController = new PagamentosController();
 
-            int valor = Integer.parseInt(valorField.getText());
-            String pagamento = (String) pagamentoComboBox.getSelectedItem();
-            textoMatriculaConveniado = (String) matriculaField.getText();
+			int valor = Integer.parseInt(valorField.getText());
+			String pagamento = (String) pagamentoComboBox.getSelectedItem();
+			textoMatriculaConveniado = (String) matriculaField.getText();
 
-            ConsultasController consultasController = new ConsultasController();
-            Consulta consulta = consultasController.criarConsulta(dataHoraConsulta, medico, cliente);
+			ConsultasController consultasController = new ConsultasController();
+			Consulta consulta = consultasController.criarConsulta(dataHoraConsulta, medico, cliente);
 
-            if (tipoPagamento == 0) {
-                pagamentosController.criarPagamentoParticular(valor, tipoPagamento, pagamento, consulta.getId());
-            } else {
-                pagamentosController.criarPagamentoConvenio(valor, tipoPagamento, pagamento, textoMatriculaConveniado, 1);
-            }
+			if (tipoPagamento == 0) {
+				pagamentosController.criarPagamentoParticular(valor, tipoPagamento, pagamento, consulta.getId());
+			} else {
+				pagamentosController.criarPagamentoConvenio(valor, tipoPagamento, pagamento, textoMatriculaConveniado,
+						1);
+			}
 
-            Router.getInstance().goToView(new HomeView());
-        });
-        botoesFieldPanel.add(confirmarButton);
-        this.add(botoesFieldPanel, BorderLayout.SOUTH);
-    }
+			Router.getInstance().goToView(new HomeView());
+		});
+		botoesFieldPanel.add(confirmarButton);
+		this.add(botoesFieldPanel, BorderLayout.SOUTH);
+	}
 
 }

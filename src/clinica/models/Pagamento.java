@@ -10,86 +10,83 @@ package clinica.models;
  * @author Bernardo Senna
  */
 public class Pagamento {
-    
-   
-    private int id;
-    private int valor;
-    private int tipo;
-    private String metodo;
-    private String convenio;
-    private String matricula;
-    private int consultaId;
-    
-    public Pagamento(){
-    
-    }
-    
-    Pagamento(int id, int valor, int tipo, String metodo, String convenio, String matricula, int consultaId)
-    {
-        this.id = id;
-        this.valor = valor;
-        this.tipo = tipo;
-        this.metodo = metodo;
-        this.convenio = convenio;
-        this.matricula = matricula;
-        this.consultaId = consultaId;
-    }
 
-    public int getId() {
-        return id;
-    }
+	private int id;
+	private int valor;
+	private int tipo;
+	private String metodo;
+	private String convenio;
+	private String matricula;
+	private int consultaId;
 
-    public void setId(int id) {
-        this.id = id;
-    }
+	public Pagamento() {
 
-    public int getValor() {
-        return valor;
-    }
+	}
 
-    public void setValor(int valor) {
-        this.valor = valor;
-    }
+	Pagamento(int id, int valor, int tipo, String metodo, String convenio, String matricula, int consultaId) {
+		this.id = id;
+		this.valor = valor;
+		this.tipo = tipo;
+		this.metodo = metodo;
+		this.convenio = convenio;
+		this.matricula = matricula;
+		this.consultaId = consultaId;
+	}
 
-    public int getTipo() {
-        return tipo;
-    }
+	public int getId() {
+		return id;
+	}
 
-    public void setTipo(int tipo) {
-        this.tipo = tipo;
-    }
+	public void setId(int id) {
+		this.id = id;
+	}
 
-    public String getMetodo() {
-        return metodo;
-    }
+	public int getValor() {
+		return valor;
+	}
 
-    public void setMetodo(String metodo) {
-        this.metodo = metodo;
-    }
+	public void setValor(int valor) {
+		this.valor = valor;
+	}
 
-    public String getConvenio() {
-        return convenio;
-    }
+	public int getTipo() {
+		return tipo;
+	}
 
-    public void setConvenio(String convenio) {
-        this.convenio = convenio;
-    }
+	public void setTipo(int tipo) {
+		this.tipo = tipo;
+	}
 
-    public String getMatricula() {
-        return matricula;
-    }
+	public String getMetodo() {
+		return metodo;
+	}
 
-    public void setMatricula(String matricula) {
-        this.matricula = matricula;
-    }
+	public void setMetodo(String metodo) {
+		this.metodo = metodo;
+	}
 
-    public int getConsultaId() {
-        return consultaId;
-    }
+	public String getConvenio() {
+		return convenio;
+	}
 
-    public void setConsultaId(int consultaId) {
-        this.consultaId = consultaId;
-    }
-    
-    
+	public void setConvenio(String convenio) {
+		this.convenio = convenio;
+	}
+
+	public String getMatricula() {
+		return matricula;
+	}
+
+	public void setMatricula(String matricula) {
+		this.matricula = matricula;
+	}
+
+	public int getConsultaId() {
+		return consultaId;
+	}
+
+	public void setConsultaId(int consultaId) {
+		this.consultaId = consultaId;
+	}
+
 }

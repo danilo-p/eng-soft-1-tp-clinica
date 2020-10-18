@@ -20,43 +20,43 @@ import java.sql.SQLException;
  */
 public class AgendaDAO extends GenericDAO {
 
-    public void salvar(Agenda agenda) throws SQLException {
-        String insert = "INSERT INTO agendas(carga_horaria, hora_inicio, hora_fim, tempo_intervalo) VALUES(?, ?, ?, ?)";
-        int id = save(insert, agenda.getCargaHoraria(), agenda.getHoraInicio(),
-            agenda.getHoraFim(), agenda.getTempoIntervalo());
-        if (id > 0) {
-            agenda.setId(id);
-        }
-    }
-    
-    public void alterar(Agenda agenda) throws SQLException {
-        String update = "UPDATE agendas SET carga_horaria = ?, hora_inicio = ?, hora_fim = ?, tempo_intervalo = ? WHERE id = ?";
-        update(update, agenda.getCargaHoraria(), agenda.getHoraInicio(),
-            agenda.getHoraFim(), agenda.getTempoIntervalo());
-    }
+	public void salvar(Agenda agenda) throws SQLException {
+		String insert = "INSERT INTO agendas(carga_horaria, hora_inicio, hora_fim, tempo_intervalo) VALUES(?, ?, ?, ?)";
+		int id = save(insert, agenda.getCargaHoraria(), agenda.getHoraInicio(), agenda.getHoraFim(),
+				agenda.getTempoIntervalo());
+		if (id > 0) {
+			agenda.setId(id);
+		}
+	}
 
-    public Agenda findById(int id) throws SQLException {
-        String select = "SELECT * FROM agendas WHERE id = ?";
-        Agenda agenda = null;
-        Connection connection = getConnection();
-        PreparedStatement stmt = connection.prepareStatement(select);
+	public void alterar(Agenda agenda) throws SQLException {
+		String update = "UPDATE agendas SET carga_horaria = ?, hora_inicio = ?, hora_fim = ?, tempo_intervalo = ? WHERE id = ?";
+		update(update, agenda.getCargaHoraria(), agenda.getHoraInicio(), agenda.getHoraFim(),
+				agenda.getTempoIntervalo());
+	}
 
-        stmt.setInt(1, id);
-        ResultSet rs = stmt.executeQuery();
+	public Agenda findById(int id) throws SQLException {
+		String select = "SELECT * FROM agendas WHERE id = ?";
+		Agenda agenda = null;
+		Connection connection = getConnection();
+		PreparedStatement stmt = connection.prepareStatement(select);
 
-        while (rs.next()) {
-            agenda = new Agenda();
-            agenda.setId(rs.getInt("id"));
-            agenda.setCargaHoraria(rs.getString("carga_horaria"));
-            agenda.setHoraInicio(rs.getTime("hora_inicio"));
-            agenda.setHoraFim(rs.getTime("hora_fim"));
-            agenda.setTempoIntervalo(rs.getInt("tempo_intervalo"));
-        }
+		stmt.setInt(1, id);
+		ResultSet rs = stmt.executeQuery();
 
-        rs.close();
-        stmt.close();
-        connection.close();
+		while (rs.next()) {
+			agenda = new Agenda();
+			agenda.setId(rs.getInt("id"));
+			agenda.setCargaHoraria(rs.getString("carga_horaria"));
+			agenda.setHoraInicio(rs.getTime("hora_inicio"));
+			agenda.setHoraFim(rs.getTime("hora_fim"));
+			agenda.setTempoIntervalo(rs.getInt("tempo_intervalo"));
+		}
 
-        return agenda;
-    }
+		rs.close();
+		stmt.close();
+		connection.close();
+
+		return agenda;
+	}
 }
