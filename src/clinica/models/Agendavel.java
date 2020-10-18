@@ -9,6 +9,7 @@ public abstract class Agendavel {
 	protected Agenda agenda;
 
 	public Agendavel() {
+//		Construtor intencionalmente vazio
 	}
 
 	public Agendavel(Agenda agenda) {

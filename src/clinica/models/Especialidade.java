@@ -8,7 +8,7 @@ public class Especialidade {
 	private String nome;
 
 	public Especialidade() {
-
+//		Construtor intencionalmente vazio
 	}
 
 	Especialidade(int id, String nome) {

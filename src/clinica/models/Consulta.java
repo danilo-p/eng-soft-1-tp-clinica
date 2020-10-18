@@ -13,6 +13,7 @@ public class Consulta {
 	private Cliente cliente;
 
 	public Consulta() {
+//		Construtor intencionalmente vazio
 	}
 
 	public Consulta(Timestamp data, Medico medico, Cliente cliente) {

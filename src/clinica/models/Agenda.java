@@ -24,6 +24,7 @@ public class Agenda {
 			this.horaInicio = new Time(sdf.parse("07:00").getTime());
 			this.horaFim = new Time(sdf.parse("19:00").getTime());
 		} catch (ParseException ex) {
+// 		Deixa de inicializar propositalmente
 		}
 	}
 
