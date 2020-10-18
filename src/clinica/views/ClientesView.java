@@ -25,60 +25,71 @@ public class ClientesView extends JPanel {
 	private static final long serialVersionUID = 1L;
 
 	public ClientesView() {
-		this.setBorder(new EmptyBorder(15, 15, 15, 15));
-		this.setLayout(new BorderLayout(15, 15));
-
-		JPanel tituloPanel = new JPanel();
-		tituloPanel.setLayout(new GridLayout(1, 2, 0, 0));
-
-		JLabel titulo = new JLabel("Clientes");
-		titulo.setAlignmentX(CENTER_ALIGNMENT);
-		tituloPanel.add(titulo);
-
-		JButton novoButton = new JButton("Novo");
-		novoButton.addActionListener((ActionEvent e) -> {
-			Router.getInstance().goToView(new CadastroClienteView());
-		});
-		tituloPanel.add(novoButton);
-
-		this.add(tituloPanel, BorderLayout.NORTH);
-
-		ClientesController clientesController = new ClientesController();
-		List<Cliente> clientes = clientesController.getClientes();
-
-		String[] titulos = { "ID", "Nome", "CPF", "Telefone" };
-		Object[][] linhas = new Object[clientes.size()][4];
-		for (int i = 0; i < clientes.size(); i++) {
-			Cliente cliente = clientes.get(i);
-			linhas[i][0] = cliente.getId();
-			linhas[i][1] = cliente.getNome();
-			linhas[i][2] = cliente.getCpf();
-			linhas[i][3] = cliente.getTelefone();
+//		Layout da view
+		{
+			this.setBorder(new EmptyBorder(15, 15, 15, 15));
+			this.setLayout(new BorderLayout(15, 15));
 		}
 
-		JTable clientesTable = new JTable(linhas, titulos);
-		clientesTable.setDefaultEditor(Object.class, null);
-		clientesTable.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mousePressed(MouseEvent mouseEvent) {
-				JTable table = (JTable) mouseEvent.getSource();
-				if (mouseEvent.getClickCount() == 2 && table.getSelectedRow() != -1) {
-					Cliente clienteSelecionado = clientes.get(table.getSelectedRow());
-					System.out.println(clienteSelecionado.getNome());
-					Router.getInstance().goToView(new AgendaClienteView(clienteSelecionado));
-					// TODO: Redirecionar para a página do cliente quando tivermos uma
-				}
+//		Cabeçalho da view
+		{
+			JPanel tituloPanel = new JPanel();
+			tituloPanel.setLayout(new GridLayout(1, 2, 0, 0));
+
+			JLabel titulo = new JLabel("Clientes");
+			titulo.setAlignmentX(CENTER_ALIGNMENT);
+			tituloPanel.add(titulo);
+
+			JButton novoButton = new JButton("Novo");
+			novoButton.addActionListener((ActionEvent e) -> {
+				Router.getInstance().goToView(new CadastroClienteView());
+			});
+			tituloPanel.add(novoButton);
+			this.add(tituloPanel, BorderLayout.NORTH);
+		}
+
+//		Corpo da view
+		{
+			ClientesController clientesController = new ClientesController();
+			List<Cliente> clientes = clientesController.getClientes();
+
+			String[] titulos = { "ID", "Nome", "CPF", "Telefone" };
+			Object[][] linhas = new Object[clientes.size()][4];
+			for (int i = 0; i < clientes.size(); i++) {
+				Cliente cliente = clientes.get(i);
+				linhas[i][0] = cliente.getId();
+				linhas[i][1] = cliente.getNome();
+				linhas[i][2] = cliente.getCpf();
+				linhas[i][3] = cliente.getTelefone();
 			}
-		});
 
-		JScrollPane scrollPane = new JScrollPane(clientesTable);
-		clientesTable.setFillsViewportHeight(true);
-		this.add(scrollPane, BorderLayout.CENTER);
+			JTable clientesTable = new JTable(linhas, titulos);
+			clientesTable.setDefaultEditor(Object.class, null);
+			clientesTable.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mousePressed(MouseEvent mouseEvent) {
+					JTable table = (JTable) mouseEvent.getSource();
+					if (mouseEvent.getClickCount() == 2 && table.getSelectedRow() != -1) {
+						Cliente clienteSelecionado = clientes.get(table.getSelectedRow());
+						System.out.println(clienteSelecionado.getNome());
+						Router.getInstance().goToView(new AgendaClienteView(clienteSelecionado));
+						// TODO: Redirecionar para a página do cliente quando tivermos uma
+					}
+				}
+			});
 
-		JButton voltarButton = new JButton("Voltar");
-		voltarButton.addActionListener((ActionEvent e) -> {
-			Router.getInstance().goToView(new HomeView());
-		});
-		this.add(voltarButton, BorderLayout.SOUTH);
+			JScrollPane scrollPane = new JScrollPane(clientesTable);
+			clientesTable.setFillsViewportHeight(true);
+			this.add(scrollPane, BorderLayout.CENTER);
+		}
+
+//		Rodapé da view
+		{
+			JButton voltarButton = new JButton("Voltar");
+			voltarButton.addActionListener((ActionEvent e) -> {
+				Router.getInstance().goToView(new HomeView());
+			});
+			this.add(voltarButton, BorderLayout.SOUTH);
+		}
 	}
 }

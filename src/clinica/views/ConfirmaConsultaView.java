@@ -31,7 +31,6 @@ public class ConfirmaConsultaView extends JPanel {
 	private JTextField matriculaField, valorField;
 
 	public ConfirmaConsultaView(Medico medico, String dataHoraConsulta) {
-
 		JPanel clienteFieldPanel = new JPanel();
 		JLabel ClienteLabel = new JLabel("Selecione o cliente:");
 		clienteFieldPanel.add(ClienteLabel);
@@ -46,15 +45,12 @@ public class ConfirmaConsultaView extends JPanel {
 		}
 		this.add(clienteFieldPanel, BorderLayout.NORTH);
 
-		// PEGA TEXTO DO COMBOBOX DE CLIENTES E GERA UMA VARIAVEL COM OS DADOS DAQUELE
-		// CLIENTE.
+		// Recupera texto do combobox de clientes e gera uma variavel com os dados
+		// daquele cliente.
 		cliente = clientes.get(0);
 		clienteComboBox.addActionListener((ActionEvent e) -> {
-
 			textoClienteComboBox = (String) clienteComboBox.getSelectedItem();
-
 			cliente = clientesController.getClienteByName(textoClienteComboBox);
-
 		});
 
 		JPanel tipoFieldPanel = new JPanel();
@@ -132,7 +128,7 @@ public class ConfirmaConsultaView extends JPanel {
 			}
 		});
 
-		// RODAPÉ....
+		// Rodapé da view
 		JPanel botoesFieldPanel = new JPanel();
 		JButton voltarButton = new JButton("Voltar");
 		voltarButton.addActionListener((ActionEvent e) -> {

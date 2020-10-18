@@ -6,6 +6,9 @@ import javax.swing.WindowConstants;
 
 /**
  * Roteador do aplicativo usado para mudança de views.
+ *
+ * Esta classe implementa o padrão Singleton, para que só haja uma instância da
+ * mesma durante a execução da aplicação.
  */
 public class Router extends JFrame {
 
