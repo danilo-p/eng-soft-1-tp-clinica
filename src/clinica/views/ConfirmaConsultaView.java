@@ -52,8 +52,7 @@ public class ConfirmaConsultaView extends JPanel {
 		}
 		this.add(clienteFieldPanel, BorderLayout.NORTH);
 
-		// Recupera texto do combobox de clientes e gera uma variavel com os dados
-		// daquele cliente.
+//		Recupera texto do combobox de clientes e gera uma variavel com os dados daquele cliente.
 		cliente = clientes.get(0);
 		clienteComboBox.addActionListener((ActionEvent e) -> {
 			textoClienteComboBox = (String) clienteComboBox.getSelectedItem();
@@ -116,7 +115,8 @@ public class ConfirmaConsultaView extends JPanel {
 				matriculaField.setEnabled(false);
 				matriculaField.setBackground(Color.LIGHT_GRAY);
 
-				tipoPagamento = 0;// pagamento por particular
+//			Pagamento particular
+				tipoPagamento = 0;
 			} else if ("Convenio".equals(textoPagamentoComboBox)) {
 				pagamentoComboBox.setEnabled(true);
 				pagamentoComboBox.removeAllItems();
@@ -129,7 +129,8 @@ public class ConfirmaConsultaView extends JPanel {
 				matriculaField.setEnabled(true);
 				matriculaField.setBackground(Color.WHITE);
 
-				tipoPagamento = 1;// pagamento por convenio
+//				Pagamento por convenio
+				tipoPagamento = 1;
 			} else {
 				pagamentoComboBox.setEnabled(false);
 			}

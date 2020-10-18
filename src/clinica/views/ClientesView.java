@@ -78,7 +78,7 @@ public class ClientesView extends JPanel {
 				if (mouseEvent.getClickCount() == 2 && table.getSelectedRow() != -1) {
 					Cliente clienteSelecionado = clientes.get(table.getSelectedRow());
 					Router.getInstance().goToView(new AgendaClienteView(clienteSelecionado));
-					// TODO: Redirecionar para a página do cliente quando tivermos uma
+//					TODO: Redirecionar para a página do cliente quando tivermos uma
 				}
 			}
 		});

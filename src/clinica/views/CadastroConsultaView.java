@@ -35,14 +35,15 @@ public class CadastroConsultaView extends JPanel {
 
 //	Adiciona corpo da view
 	private void addViewBody() {
-		// Cria o combobox com as especialidades a serem escolhidas.
+
+//		Cria o combobox com as especialidades a serem escolhidas.
 		JPanel especialidadeFieldPanel = new JPanel();
 		JLabel especialidadeLabel = new JLabel("Filtrar médicos por especialidade:");
 		especialidadeFieldPanel.add(especialidadeLabel);
 		JComboBox<String> especialidadeComboBox = new JComboBox<String>();
 		especialidadeFieldPanel.add(especialidadeComboBox);
 
-		// Preenche o combobox com as especialidades existentes no banco de dados.
+//		Preenche o combobox com as especialidades existentes no banco de dados.
 		EspecialidadesController especialidadesController = new EspecialidadesController();
 		List<Especialidade> especialidades = especialidadesController.getEspecialidades();
 		for (int i = 0; i < especialidades.size(); i++) {
@@ -56,7 +57,7 @@ public class CadastroConsultaView extends JPanel {
 			especialidadeId = especialidade.getId();
 		});
 
-		// Somente pra buscar a especialidade que ja vem "selecionada" no ComboBox
+//		Somente pra buscar a especialidade que ja vem "selecionada" no ComboBox
 		String textoComboBox = (String) especialidadeComboBox.getSelectedItem();
 		Especialidade especialidade = especialidadesController.getEspecialidadesByName(textoComboBox);
 		especialidadeId = especialidade.getId();

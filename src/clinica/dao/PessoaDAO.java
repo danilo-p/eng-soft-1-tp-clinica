@@ -30,7 +30,7 @@ public class PessoaDAO extends GenericDAO {
 		}
 	}
 
-//	Altear uma pessoa no banco de dado
+//	Altear uma pessoa no banco de dados
 	public void alterar(Pessoa pessoa) throws SQLException {
 		String update = "UPDATE pessoas " + "SET nome = ?, cpf = ?, telefone = ? " + "WHERE id = ?";
 		update(update, pessoa.getId(), pessoa.getNome(), pessoa.getCpf(), pessoa.getTelefone());

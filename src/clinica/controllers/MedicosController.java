@@ -44,8 +44,9 @@ public class MedicosController {
 		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
 		try {
 			this.horaInicio = new Time(sdf.parse(horaInicial).getTime());
-			this.horaFim = new Time(sdf.parse(horaInicial).getTime() + 360 * 60 * 1000); // somar 6 horas ao horario de
-																							// inicio
+
+//			Soma 6 horas ao horario de inicio
+			this.horaFim = new Time(sdf.parse(horaInicial).getTime() + 360 * 60 * 1000);
 		} catch (ParseException ex) {
 			JOptionPane.showMessageDialog(null, "O horário deve ser no formato HH:mm.");
 			return;

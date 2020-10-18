@@ -72,7 +72,7 @@ public class AgendaMedicoView extends JPanel {
 //	Adiciona corpo da view
 	private void addViewBody(Medico medico, int controleSemana) {
 		Calendar cal = Calendar.getInstance();
-		cal.set(Calendar.HOUR_OF_DAY, 0); // ! clear would not reset the hour of day !
+		cal.set(Calendar.HOUR_OF_DAY, 0);
 		cal.clear(Calendar.MINUTE);
 		cal.clear(Calendar.SECOND);
 		cal.clear(Calendar.MILLISECOND);
