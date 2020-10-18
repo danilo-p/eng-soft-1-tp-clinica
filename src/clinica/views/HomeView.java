@@ -45,6 +45,6 @@ public class HomeView extends JPanel {
 		});
 		this.add(novaConsultaButton);
 
-		this.add(new JButton("Novo Exame"));
+		this.add(new JButton("Novo Teste"));
 	}
 }

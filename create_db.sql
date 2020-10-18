@@ -55,8 +55,8 @@ CREATE TABLE equipamentos (
   FOREIGN KEY (agenda_id) REFERENCES agendas(id)
 );
 
-DROP TABLE IF EXISTS exames;
-CREATE TABLE exames (
+DROP TABLE IF EXISTS testes;
+CREATE TABLE testes (
   id INT NOT NULL AUTO_INCREMENT,
   consulta_id INT NOT NULL,
   equipamento_id INT NOT NULL,
@@ -109,7 +109,7 @@ VALUES (2, "Ciclano Cliente", "123.456.789-10", "(12) 12345-1234", 0, 2);
 -- Cria consultas com Teste RT PCR e pagamento por convenio 
 INSERT INTO consultas (id, data, medico_id, cliente_id)
 VALUES (1, '2020-09-17 10:00:00', 1, 2);
-INSERT INTO exames (id, consulta_id, equipamento_id)
+INSERT INTO testes (id, consulta_id, equipamento_id)
 VALUES (1, 1, 1);
 INSERT INTO pagamentos (id, valor, tipo, convenio, matricula, consulta_id)
 VALUES (1, 10000, 1, 'UNIMED', '0000000001', 1);
