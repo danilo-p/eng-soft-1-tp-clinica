@@ -11,7 +11,6 @@ import clinica.dao.EspecialidadeDAO;
 import clinica.models.Especialidade;
 import java.awt.BorderLayout;
 import java.awt.Color;
-import static java.awt.Component.CENTER_ALIGNMENT;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -25,6 +24,7 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.ScrollPaneConstants;
 import javax.swing.JCheckBox;
 import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
@@ -67,8 +67,8 @@ public class CadastroMedicoView extends JPanel {
 		JPanel fieldsPanel = new JPanel();
 		fieldsPanel.setLayout(new BoxLayout(fieldsPanel, BoxLayout.Y_AXIS));
 		fieldsPanel.setPreferredSize(new Dimension(500, 600));
-		JScrollPane scrollPane = new JScrollPane(fieldsPanel, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
-				JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+		JScrollPane scrollPane = new JScrollPane(fieldsPanel, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
+				ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		scrollPane.setPreferredSize(new Dimension(500, 500));
 
 		JPanel nomeFieldPanel = new JPanel();

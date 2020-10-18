@@ -148,7 +148,7 @@ public class ConfirmaConsultaView extends JPanel {
 
 			int valor = Integer.parseInt(valorField.getText());
 			String pagamento = (String) pagamentoComboBox.getSelectedItem();
-			textoMatriculaConveniado = (String) matriculaField.getText();
+			textoMatriculaConveniado = matriculaField.getText();
 
 			ConsultasController consultasController = new ConsultasController();
 			Consulta consulta = consultasController.criarConsulta(dataHoraConsulta, medico, cliente);

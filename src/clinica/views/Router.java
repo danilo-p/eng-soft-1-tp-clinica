@@ -7,6 +7,7 @@ package clinica.views;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.WindowConstants;
 
 /**
  * Roteador do aplicativo usado para mudança de views.
@@ -27,7 +28,7 @@ public class Router extends JFrame {
 
 	public Router() {
 		super();
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		this.setSize(500, 500);
 		this.setVisible(true);
 

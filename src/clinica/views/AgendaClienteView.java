@@ -5,18 +5,10 @@
  */
 package clinica.views;
 
-import clinica.controllers.ClientesController;
 import clinica.models.Cliente;
-import clinica.models.Pessoa;
 import java.awt.BorderLayout;
-import static java.awt.Component.CENTER_ALIGNMENT;
 import java.awt.GridLayout;
-import java.awt.Point;
 import java.awt.event.ActionEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.util.Arrays;
-import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -24,9 +16,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 import java.sql.Time;
-import java.text.SimpleDateFormat;
-import java.sql.Date;
-import java.text.ParseException;
 
 /**
  *

@@ -21,12 +21,10 @@ import java.util.List;
  */
 public class MedicoDAO extends GenericDAO {
 
-	private final PessoaDAO pessoaDAO;
 	private final AgendaDAO agendaDAO;
 	private final EspecialidadeDAO especialidadeDAO;
 
 	public MedicoDAO() {
-		this.pessoaDAO = new PessoaDAO();
 		this.agendaDAO = new AgendaDAO();
 		this.especialidadeDAO = new EspecialidadeDAO();
 	}
@@ -42,8 +40,8 @@ public class MedicoDAO extends GenericDAO {
 		}
 	}
 
-	public List findMedicos() throws SQLException {
-		List pessoas = new ArrayList();
+	public List<Medico> findMedicos() throws SQLException {
+		List<Medico> medicos = new ArrayList<Medico>();
 
 		String select = "SELECT * FROM pessoas WHERE tipo = 1";
 
@@ -70,18 +68,18 @@ public class MedicoDAO extends GenericDAO {
 			Agenda agenda = this.agendaDAO.findById(agendaId);
 			medico.setAgenda(agenda);
 
-			pessoas.add(medico);
+			medicos.add(medico);
 		}
 
 		rs.close();
 		stmt.close();
 		connection.close();
 
-		return pessoas;
+		return medicos;
 	}
 
-	public List findMedicosByEspecialidadeId(int id) throws SQLException {
-		List pessoas = new ArrayList();
+	public List<Medico> findMedicosByEspecialidadeId(int id) throws SQLException {
+		List<Medico> medicos = new ArrayList<Medico>();
 
 		String select = "SELECT * FROM pessoas WHERE tipo = 1 AND especialidade_id = ?";
 
@@ -109,14 +107,14 @@ public class MedicoDAO extends GenericDAO {
 			Agenda agenda = this.agendaDAO.findById(agendaId);
 			medico.setAgenda(agenda);
 
-			pessoas.add(medico);
+			medicos.add(medico);
 		}
 
 		rs.close();
 		stmt.close();
 		connection.close();
 
-		return pessoas;
+		return medicos;
 	}
 
 	public Medico findById(int id) throws SQLException {

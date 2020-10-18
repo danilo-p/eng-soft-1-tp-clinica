@@ -9,8 +9,6 @@ import clinica.dao.MedicoDAO;
 import clinica.models.Agenda;
 import clinica.models.Medico;
 import clinica.models.Especialidade;
-import clinica.views.MedicosView;
-import clinica.views.Router;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;

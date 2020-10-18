@@ -7,7 +7,6 @@ package clinica.views;
 
 import clinica.controllers.ClientesController;
 import clinica.models.Cliente;
-import clinica.models.Pessoa;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.Point;

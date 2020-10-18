@@ -27,6 +27,8 @@ import javax.swing.border.EmptyBorder;
  */
 public class MedicosView extends JPanel {
 
+	private static final long serialVersionUID = 1L;
+
 	public MedicosView() {
 
 		this.setBorder(new EmptyBorder(15, 15, 15, 15));

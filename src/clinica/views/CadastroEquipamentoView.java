@@ -12,8 +12,6 @@ import clinica.models.Especialidade;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import static java.awt.Component.CENTER_ALIGNMENT;
-import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.sql.SQLException;

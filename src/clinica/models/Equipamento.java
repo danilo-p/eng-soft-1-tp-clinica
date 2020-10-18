@@ -5,8 +5,6 @@
  */
 package clinica.models;
 
-import java.util.List;
-
 /**
  *
  * @author Vien
