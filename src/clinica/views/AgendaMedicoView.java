@@ -143,8 +143,7 @@ public class AgendaMedicoView extends JPanel {
 
 			if (diaSemanaConsultaIndice > 0 && horaConsultaIndice >= 0) {
 				Cliente cliente = consulta.getCliente();
-				dados[horaConsultaIndice][diaSemanaConsultaIndice] = cliente.getNome() + " - "
-						+ cliente.getTelefone();
+				dados[horaConsultaIndice][diaSemanaConsultaIndice] = cliente.getNome() + " - " + cliente.getTelefone();
 			}
 		}
 
