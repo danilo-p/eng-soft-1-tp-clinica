@@ -45,7 +45,7 @@ public abstract class GenericDAO {
 	}
 
 //	Constrói e executa uma SQL de atualização com os parâmetros
-	protected void update(String updateSql, Object id, Object... parametros) throws SQLException {
+	protected void update(String updateSql, int id, Object... parametros) throws SQLException {
 		Connection connection = getConnection();
 		PreparedStatement pstmt = connection.prepareStatement(updateSql);
 
