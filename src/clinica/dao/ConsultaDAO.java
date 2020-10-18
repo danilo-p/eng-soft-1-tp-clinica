@@ -38,7 +38,7 @@ public class ConsultaDAO extends GenericDAO {
 //	Altera a dada consulta no banco de dados
 	public void alterar(Consulta consulta) throws SQLException {
 		String update = "UPDATE consultas SET data = ?, medico_id = ?, cliente_id = ? WHERE id = ?";
-		update(update, consulta.getData(), consulta.getMedico().getId(), consulta.getCliente().getId());
+		update(update, consulta.getId(), consulta.getData(), consulta.getMedico().getId(), consulta.getCliente().getId());
 	}
 
 //	Pesquisa consultas para um dado cliente

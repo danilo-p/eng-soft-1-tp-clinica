@@ -27,7 +27,7 @@ public class AgendaDAO extends GenericDAO {
 //	Altera a agenda no banco de dados
 	public void alterar(Agenda agenda) throws SQLException {
 		String update = "UPDATE agendas SET carga_horaria = ?, hora_inicio = ?, hora_fim = ?, tempo_intervalo = ? WHERE id = ?";
-		update(update, agenda.getCargaHoraria(), agenda.getHoraInicio(), agenda.getHoraFim(),
+		update(update, agenda.getId(), agenda.getCargaHoraria(), agenda.getHoraInicio(), agenda.getHoraFim(),
 				agenda.getTempoIntervalo());
 	}
 
