@@ -80,7 +80,6 @@ public class MedicosView extends JPanel {
 				JTable table = (JTable) mouseEvent.getSource();
 				if (mouseEvent.getClickCount() == 2 && table.getSelectedRow() != -1) {
 					Medico medicoSelecionado = medicos.get(table.getSelectedRow());
-					System.out.println(medicoSelecionado.getNome());
 					Router.getInstance().goToView(new AgendaMedicoView(medicoSelecionado, voltarView, 0));
 				}
 			}

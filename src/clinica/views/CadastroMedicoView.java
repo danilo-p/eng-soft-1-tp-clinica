@@ -326,27 +326,20 @@ public class CadastroMedicoView extends JPanel {
 
 //	Valida o campo de especialidade do medico
 	private boolean validateEspecialidadeComboBox() {
-		System.out.println("askdhfjaldskfj 1");
 		String especialidade = (String) this.especialidadeComboBox.getSelectedItem();
 		String novaEspecialidade = especialidadeField.getText();
-
-		System.out.println("askdhfjaldskfj 2 " + especialidade + " " + novaEspecialidade);
 
 		if (especialidade.length() == 0) {
 			this.especialidadeError.setText("Selecione a especialidade do médico");
 			this.especialidadeError.setVisible(true);
-			System.out.println("askdhfjaldskfj 3");
 			return false;
 		}
 
 		if (("Outra".equals(especialidade)) && novaEspecialidade.length() == 0) {
 			this.especialidadeError.setText("Insira a nova especialidade ou selecione outra opção");
 			this.especialidadeError.setVisible(true);
-			System.out.println("askdhfjaldskfj 4");
 			return false;
 		}
-
-		System.out.println("askdhfjaldskfj 5");
 
 		this.especialidadeError.setVisible(false);
 		return true;
