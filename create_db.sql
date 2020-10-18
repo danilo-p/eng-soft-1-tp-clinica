@@ -108,13 +108,13 @@ VALUES (2, "Ciclano Cliente", "123.456.789-10", "(12) 12345-1234", 0, 2);
 
 -- Cria consultas com Teste RT PCR e pagamento por convenio 
 INSERT INTO consultas (id, data, medico_id, cliente_id)
-VALUES (1, '2018-12-17 10:00:00', 1, 2);
+VALUES (1, '2020-09-17 10:00:00', 1, 2);
 INSERT INTO exames (id, consulta_id, equipamento_id)
 VALUES (1, 1, 1);
 INSERT INTO pagamentos (id, valor, tipo, convenio, matricula, consulta_id)
 VALUES (1, 10000, 1, 'UNIMED', '0000000001', 1);
 
 INSERT INTO consultas (id, data, medico_id, cliente_id)
-VALUES (2, '2018-12-17 10:00:00', 1, 2);
+VALUES (2, '2020-09-17 10:00:00', 1, 2);
 INSERT INTO pagamentos (id, valor, tipo, metodo, consulta_id)
 VALUES (2, 10000, 0, 'Dinheiro', 2);
