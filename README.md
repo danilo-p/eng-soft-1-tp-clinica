@@ -1,8 +1,6 @@
-# Trabalho Final de Engenharia de Software
+# Trabalho Final de Engenharia de Software I - Clínica de Vacinação
 
-## Instalação
-
-- Instale o NetBeans:
+## Para contribuir
 
 - Clone o repositório utilizando o comando:
 ```shell
