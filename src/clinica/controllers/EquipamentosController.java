@@ -20,6 +20,7 @@ public class EquipamentosController {
 		this.equipamentoDAO = new EquipamentoDAO();
 	}
 
+//	Cria um novo equipamento
 	public void criarEquipamento(String nome, Especialidade especialidade) {
 		Equipamento novoEquipamento = new Equipamento(nome, especialidade);
 
@@ -34,6 +35,7 @@ public class EquipamentosController {
 		}
 	}
 
+//	Lista todos os equipamentos cadastrados
 	public List<Equipamento> getEquipamentos() {
 		try {
 			return this.equipamentoDAO.findEquipamentos();

@@ -15,6 +15,7 @@ import java.util.List;
  */
 public class EspecialidadeDAO extends GenericDAO {
 
+//	Salva uma nova especialidade no banco de dados
 	public void salvar(Especialidade especialidade) throws SQLException {
 		String insert = "INSERT INTO especialidades(nome) VALUES(?)";
 		int id = save(insert, especialidade.getNome());
@@ -23,11 +24,13 @@ public class EspecialidadeDAO extends GenericDAO {
 		}
 	}
 
+//	Altera a especialidade no banco de dados
 	public void alterar(Especialidade especialidade) throws SQLException {
 		String update = "UPDATE especialidades SET nome = ? WHERE id = ?";
 		update(update, especialidade.getId(), especialidade.getNome());
 	}
 
+//	Encontra uma especialidade para o id
 	public Especialidade findById(int id) throws SQLException {
 		String select = "SELECT * FROM especialidades WHERE id = ?";
 		Especialidade especialidade = null;
@@ -50,6 +53,7 @@ public class EspecialidadeDAO extends GenericDAO {
 		return especialidade;
 	}
 
+//	Pesquisa especialidades por nome
 	public Especialidade findByName(String nome) throws SQLException {
 		String select = "SELECT * FROM especialidades WHERE nome = ?";
 		Especialidade especialidade = null;
@@ -72,6 +76,7 @@ public class EspecialidadeDAO extends GenericDAO {
 		return especialidade;
 	}
 
+//	Lista todas as especialidades cadastradas no banco de dados
 	public List<Especialidade> findEspecialidades() throws SQLException {
 
 		List<Especialidade> listEspecialidades = new ArrayList<Especialidade>();

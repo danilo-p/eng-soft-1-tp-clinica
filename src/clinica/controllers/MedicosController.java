@@ -25,6 +25,7 @@ public class MedicosController {
 		this.medicoDAO = new MedicoDAO();
 	}
 
+//	Cria um novo médico e sua agenda pessoal
 	public void criarMedico(String nome, String cpf, String telefone, Especialidade especialidade, String horaInicial,
 			int intervalo, String cargaHoraria) {
 		Medico novoMedico = new Medico();
@@ -60,6 +61,7 @@ public class MedicosController {
 		}
 	}
 
+//	Lista todos os médicos cadastrados
 	public List<Medico> getMedicos() {
 		try {
 			return this.medicoDAO.findMedicos();
@@ -70,6 +72,7 @@ public class MedicosController {
 		}
 	}
 
+//	Pesquisa médicos por especialidade
 	public List<Medico> getMedicosByEspecialidadeId(int id) {
 		try {
 			return this.medicoDAO.findMedicosByEspecialidadeId(id);

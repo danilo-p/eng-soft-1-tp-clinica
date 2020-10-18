@@ -25,6 +25,7 @@ public class ConsultaDAO extends GenericDAO {
 		this.clienteDAO = new ClienteDAO();
 	}
 
+//	Salva uma nova consulta no banco de dados
 	public void salvar(Consulta consulta) throws SQLException {
 		String insert = "INSERT INTO consultas(data, medico_id, cliente_id) VALUES(?, ?, ?)";
 		int id = save(insert, consulta.getData(), consulta.getMedico().getId(), consulta.getCliente().getId());
@@ -33,11 +34,13 @@ public class ConsultaDAO extends GenericDAO {
 		}
 	}
 
+//	Altera a dada consulta no banco de dados
 	public void alterar(Consulta consulta) throws SQLException {
 		String update = "UPDATE consultas SET data = ?, medico_id = ?, cliente_id = ? WHERE id = ?";
 		update(update, consulta.getData(), consulta.getMedico().getId(), consulta.getCliente().getId());
 	}
 
+//	Pesquisa consultas para um dado cliente
 	public List<Consulta> findByCliente(Cliente cliente) throws SQLException {
 		List<Consulta> consultas = new ArrayList<Consulta>();
 
@@ -68,6 +71,7 @@ public class ConsultaDAO extends GenericDAO {
 		return consultas;
 	}
 
+//	Pesquisa consultas para um dado medico
 	public List<Consulta> findByMedico(Medico medico, Timestamp inicio, Timestamp fim) throws SQLException {
 		List<Consulta> consultas = new ArrayList<Consulta>();
 

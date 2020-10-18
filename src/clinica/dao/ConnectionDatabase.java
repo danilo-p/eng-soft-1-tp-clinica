@@ -16,6 +16,7 @@ public class ConnectionDatabase {
 	private static final String USER = "root";
 	private static final String PASS = "";
 
+//	Abre uma nova conexão com o banco de dados
 	public static Connection getConnection() {
 		System.out.println("Conectando ao Banco de Dados");
 		try {

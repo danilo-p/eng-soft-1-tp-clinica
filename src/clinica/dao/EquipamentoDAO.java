@@ -24,6 +24,7 @@ public class EquipamentoDAO extends GenericDAO {
 		this.agendaDAO = new AgendaDAO();
 	}
 
+//	Salva um equipamento no banco de dados
 	public void salvar(Equipamento equip) throws SQLException {
 		Agenda agenda = equip.getAgenda();
 		this.agendaDAO.salvar(agenda);
@@ -34,6 +35,7 @@ public class EquipamentoDAO extends GenericDAO {
 		}
 	}
 
+//	Lista todos os equipamentos salvos no banco de dados
 	public List<Equipamento> findEquipamentos() throws SQLException {
 		List<Equipamento> equipamentos = new ArrayList<Equipamento>();
 
@@ -69,6 +71,7 @@ public class EquipamentoDAO extends GenericDAO {
 		return equipamentos;
 	}
 
+//	Encontra um equipamento no banco de dados
 	public Equipamento findById(int id) throws SQLException {
 		String select = "SELECT * FROM equipamentos WHERE id = ?";
 		Equipamento equip = null;
@@ -100,6 +103,7 @@ public class EquipamentoDAO extends GenericDAO {
 		return equip;
 	}
 
+//	Pesquisa equipamentos para uma dada especialidade
 	public List<Equipamento> findByEspecialidade(Especialidade especialidade) throws SQLException {
 		List<Equipamento> equipamentos = new ArrayList<Equipamento>();
 

@@ -18,6 +18,7 @@ public class ClientesController {
 		this.clienteDAO = new ClienteDAO();
 	}
 
+//	Cadastra um novo cliente
 	public void criarCliente(String nome, String cpf, String telefone) {
 		Cliente novoCliente = new Cliente();
 
@@ -36,6 +37,7 @@ public class ClientesController {
 		}
 	}
 
+//	Lista os clientes cadastrados
 	public List<Cliente> getClientes() {
 		try {
 			return this.clienteDAO.findClientes();
@@ -46,6 +48,7 @@ public class ClientesController {
 		}
 	}
 
+//	Pesquisa clientes por nome
 	public Cliente getClienteByName(String nome) {
 		try {
 			return this.clienteDAO.findByName(nome);

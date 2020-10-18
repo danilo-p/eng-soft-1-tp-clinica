@@ -13,6 +13,7 @@ import java.sql.SQLException;
  */
 public class AgendaDAO extends GenericDAO {
 
+//	Salva a agenda no banco de dados
 	public void salvar(Agenda agenda) throws SQLException {
 		String insert = "INSERT INTO agendas(carga_horaria, hora_inicio, hora_fim, tempo_intervalo) VALUES(?, ?, ?, ?)";
 		int id = save(insert, agenda.getCargaHoraria(), agenda.getHoraInicio(), agenda.getHoraFim(),
@@ -22,12 +23,14 @@ public class AgendaDAO extends GenericDAO {
 		}
 	}
 
+//	Altera a agenda no banco de dados
 	public void alterar(Agenda agenda) throws SQLException {
 		String update = "UPDATE agendas SET carga_horaria = ?, hora_inicio = ?, hora_fim = ?, tempo_intervalo = ? WHERE id = ?";
 		update(update, agenda.getCargaHoraria(), agenda.getHoraInicio(), agenda.getHoraFim(),
 				agenda.getTempoIntervalo());
 	}
 
+//	Encontra a agenda para o dado id no banco de dados
 	public Agenda findById(int id) throws SQLException {
 		String select = "SELECT * FROM agendas WHERE id = ?";
 		Agenda agenda = null;

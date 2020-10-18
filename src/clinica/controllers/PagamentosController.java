@@ -15,6 +15,7 @@ public class PagamentosController {
 		this.pagamentoDAO = new PagamentoDAO();
 	}
 
+//	Cria um novo pagamento no modo particular
 	public void criarPagamentoParticular(int valor, int tipoPagamento, String pagamento, int idConsulta) {
 		Pagamento novoPagamento = new Pagamento();
 
@@ -31,6 +32,7 @@ public class PagamentosController {
 		}
 	}
 
+//	Cria um novo pagamento por convenio
 	public void criarPagamentoConvenio(int valor, int tipoPagamento, String pagamento, String matricula,
 			int idConsulta) {
 		Pagamento novoPagamento = new Pagamento();

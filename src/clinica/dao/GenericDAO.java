@@ -17,6 +17,7 @@ public abstract class GenericDAO {
 		return ConnectionDatabase.getConnection();
 	}
 
+//	Constrói e executa uma SQL de inserção com os parâmetros
 	protected int save(String insertSql, Object... parametros) {
 		int id = -1;
 		try {
@@ -43,6 +44,7 @@ public abstract class GenericDAO {
 		return id;
 	}
 
+//	Constrói e executa uma SQL de atualização com os parâmetros
 	protected void update(String updateSql, Object id, Object... parametros) throws SQLException {
 		Connection connection = getConnection();
 		PreparedStatement pstmt = connection.prepareStatement(updateSql);
@@ -56,6 +58,7 @@ public abstract class GenericDAO {
 		connection.close();
 	}
 
+//	Constrói e executa uma SQL de deleção com os parâmetros
 	protected void delete(String deleteSql, Object... parametros) throws SQLException {
 		Connection connection = getConnection();
 		PreparedStatement pstmt = connection.prepareStatement(deleteSql);

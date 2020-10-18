@@ -10,8 +10,8 @@ import java.sql.SQLException;
  */
 public class PagamentoDAO extends GenericDAO {
 
+//	Salva um pagamento particular no banco de dado
 	public void salvarPagamentoParticular(Pagamento pagamento) throws SQLException {
-
 		String insert = "INSERT INTO pagamentos(valor, tipo, metodo, consulta_id) VALUES(?,?,?,?)";
 		int id = save(insert, pagamento.getValor(), pagamento.getTipo(), pagamento.getMetodo(),
 				pagamento.getConsultaId());
@@ -20,8 +20,8 @@ public class PagamentoDAO extends GenericDAO {
 		}
 	}
 
+//	Salva um pagamento por convernio no banco de dados
 	public void salvarPagamentoConvenio(Pagamento pagamento) throws SQLException {
-
 		String insert = "INSERT INTO pagamentos(valor, tipo, convenio, matricula, consulta_id) VALUES(?,?,?,?,?)";
 		int id = save(insert, pagamento.getValor(), pagamento.getTipo(), pagamento.getConvenio(),
 				pagamento.getMatricula(), pagamento.getConsultaId());

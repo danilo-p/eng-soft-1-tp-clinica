@@ -17,6 +17,7 @@ public class EspecialidadesController {
 		this.especialidadeDAO = new EspecialidadeDAO();
 	}
 
+//	Cria uma nova especialidade
 	public void criarEspecialidade(String nome) {
 		Especialidade novaEspecialidade = new Especialidade();
 
@@ -30,6 +31,7 @@ public class EspecialidadesController {
 		}
 	}
 
+//	Lista todas as especialidades cadastradas
 	public List<Especialidade> getEspecialidades() {
 		try {
 			return this.especialidadeDAO.findEspecialidades();
@@ -40,6 +42,7 @@ public class EspecialidadesController {
 		}
 	}
 
+//	Pesquisa especialidades por nome
 	public Especialidade getEspecialidadesByName(String nome) {
 		try {
 			return this.especialidadeDAO.findByName(nome);

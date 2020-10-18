@@ -24,10 +24,12 @@ public class ClienteDAO extends GenericDAO {
 		this.agendaDAO = new AgendaDAO();
 	}
 
+//	Salva o cliente no banco de dados
 	public void salvar(Cliente cliente) throws SQLException {
 		this.pessoaDAO.salvar(cliente);
 	}
 
+//	Lista todos os clientes cadastrados no banco de dados
 	public List<Cliente> findClientes() throws SQLException {
 		List<Cliente> clientes = new ArrayList<Cliente>();
 
@@ -61,6 +63,7 @@ public class ClienteDAO extends GenericDAO {
 		return clientes;
 	}
 
+//	Encontra o cliente para o dado id no banco de dados
 	public Cliente findById(int id) throws SQLException {
 		String select = "SELECT * FROM pessoas WHERE id = ? AND tipo = 0";
 		Cliente cliente = null;
@@ -92,6 +95,7 @@ public class ClienteDAO extends GenericDAO {
 		return cliente;
 	}
 
+//	Encontra clientes por um nome no banco de dados
 	public Cliente findByName(String nome) throws SQLException {
 		String select = "SELECT * FROM pessoas WHERE nome = ? AND tipo = 0";
 		Cliente cliente = null;

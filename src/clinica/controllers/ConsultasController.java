@@ -22,6 +22,7 @@ public class ConsultasController {
 		this.consultaDAO = new ConsultaDAO();
 	}
 
+//	Cria uma nova consulta para o médico e o cliente cadastrados
 	public Consulta criarConsulta(String dataHoraConsulta, Medico medico, Cliente cliente) {
 		try {
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -40,6 +41,7 @@ public class ConsultasController {
 		return null;
 	}
 
+//	Pesquisa consultas para o médico e o intevalo de tempo dado
 	public List<Consulta> getByMedico(Medico medico, Timestamp inicio, Timestamp fim) {
 		try {
 			return this.consultaDAO.findByMedico(medico, inicio, fim);

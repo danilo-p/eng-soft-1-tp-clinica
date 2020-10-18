@@ -25,6 +25,7 @@ public class MedicoDAO extends GenericDAO {
 		this.especialidadeDAO = new EspecialidadeDAO();
 	}
 
+//	Salva um medico no banco de dados
 	public void salvarMedico(Medico medico) throws SQLException {
 		Agenda agenda = medico.getAgenda();
 		this.agendaDAO.salvar(agenda);
@@ -36,6 +37,7 @@ public class MedicoDAO extends GenericDAO {
 		}
 	}
 
+//	Lista todos os medicos cadastrados no banco de dados
 	public List<Medico> findMedicos() throws SQLException {
 		List<Medico> medicos = new ArrayList<Medico>();
 
@@ -74,6 +76,7 @@ public class MedicoDAO extends GenericDAO {
 		return medicos;
 	}
 
+//	Pesquisa medicos para uma especialidade
 	public List<Medico> findMedicosByEspecialidadeId(int id) throws SQLException {
 		List<Medico> medicos = new ArrayList<Medico>();
 
@@ -113,6 +116,7 @@ public class MedicoDAO extends GenericDAO {
 		return medicos;
 	}
 
+//	Encontra um medico para o id
 	public Medico findById(int id) throws SQLException {
 		String select = "SELECT * FROM pessoas WHERE id = ? AND tipo = 1";
 		Medico medico = null;
