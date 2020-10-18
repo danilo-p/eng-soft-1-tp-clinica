@@ -104,6 +104,9 @@ public class AgendaMedicoView extends JPanel {
 			case 5:
 				diaNome = "Sex. ";
 				break;
+			default:
+				diaNome = "Dia inválido ";
+				break;
 			}
 			aux += "," + diaNome + cal.get(Calendar.DAY_OF_MONTH) + "/" + (cal.get(Calendar.MONTH) + 1);
 		}
