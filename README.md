@@ -4,7 +4,7 @@
 
 Este repositório contém o código fonte para o trabalho final da disciplina de Engenharia de Software I (curso de Sistemas de Informação, UFMG). A proposta do trabalho foi o desenvolvimento de um sistema para clínicas que oferecem testes para COVID-19. O sistema foi desenvolvido em Java, utilizando padrões de projeto como MVC e DAO, além de interface construída com Java Swing e persistência no banco de dados MariaDB.
 
-*Demonstração: * https://drive.google.com/file/d/1qEf2_BqH3uTwOVf5Zu_CxzWpCg5hOPmi/view?usp=sharing
+**Demonstração:** https://drive.google.com/file/d/1qEf2_BqH3uTwOVf5Zu_CxzWpCg5hOPmi/view?usp=sharing
 
 ## Contribuidores
 
