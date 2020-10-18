@@ -32,7 +32,7 @@ import clinica.models.Especialidade;
 public class CadastroMedicoView extends JPanel {
 	private static final long serialVersionUID = 1L;
 
-	EspecialidadesController especialidadesController = new EspecialidadesController();
+	private EspecialidadesController especialidadesController = new EspecialidadesController();
 	private final EspecialidadeDAO especialidadeDAO = new EspecialidadeDAO();
 	private final String[] intervalo = { "15", "20", "30" };
 	private JTextField nomeField, cpfField, telefoneField, horaInicioField, especialidadeField;

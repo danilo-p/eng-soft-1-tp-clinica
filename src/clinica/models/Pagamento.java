@@ -14,7 +14,7 @@ public class Pagamento {
 	private int consultaId;
 
 	public Pagamento() {
-
+//		Construtor intencionalmente vazio
 	}
 
 	Pagamento(int id, int valor, int tipo, String metodo, String convenio, String matricula, int consultaId) {

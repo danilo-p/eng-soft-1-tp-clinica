@@ -28,7 +28,7 @@ import clinica.models.Especialidade;
 public class CadastroEquipamentoView extends JPanel {
 	private static final long serialVersionUID = 1L;
 
-	EspecialidadesController especialidadesController = new EspecialidadesController();
+	private EspecialidadesController especialidadesController = new EspecialidadesController();
 	private final EspecialidadeDAO especialidadeDAO = new EspecialidadeDAO();
 
 	private JComboBox<String> especialidadeComboBox;

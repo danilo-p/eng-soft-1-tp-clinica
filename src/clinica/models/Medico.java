@@ -5,11 +5,7 @@ package clinica.models;
  */
 public class Medico extends Pessoa {
 
-	protected Especialidade especialidade;
-	protected Agenda cargaHoraria;
-	protected Agenda horaInicio;
-	protected Agenda horaFim;
-	protected Agenda tempoIntervalo;
+	private Especialidade especialidade;
 
 	public Medico() {
 		super();

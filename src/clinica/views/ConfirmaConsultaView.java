@@ -25,18 +25,19 @@ public class ConfirmaConsultaView extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 
-	Cliente cliente;
-	String textoClienteComboBox, textoPagamentoComboBox, textoMatriculaConveniado;
-	int tipoPagamento;
+	private Cliente cliente;
+	private String textoClienteComboBox, textoPagamentoComboBox, textoMatriculaConveniado;
+	private int tipoPagamento;
 	private JTextField matriculaField, valorField;
+	private JComboBox<String> pagamentoComboBox;
 
 	public ConfirmaConsultaView(Medico medico, String dataHoraConsulta) {
-		JComboBox<String> pagamentoComboBox = this.addViewBody();
-		this.addViewFooter(medico, dataHoraConsulta, pagamentoComboBox);
+		this.addViewBody();
+		this.addViewFooter(medico, dataHoraConsulta);
 	}
 
 //	Adiciona corpo da view retornando o combobox de pagamento pra uso no rodape
-	private JComboBox<String> addViewBody() {
+	private void addViewBody() {
 		JPanel clienteFieldPanel = new JPanel();
 		JLabel ClienteLabel = new JLabel("Selecione o cliente:");
 		clienteFieldPanel.add(ClienteLabel);
@@ -73,9 +74,9 @@ public class ConfirmaConsultaView extends JPanel {
 		JPanel escolhaFieldPanel = new JPanel();
 		JLabel PagamentoLabel2 = new JLabel("Selecione a forma de pagamento/convenio:");
 		escolhaFieldPanel.add(PagamentoLabel2);
-		JComboBox<String> pagamentoComboBox = new JComboBox<String>();
-		pagamentoComboBox.setEnabled(false);
-		escolhaFieldPanel.add(pagamentoComboBox);
+		this.pagamentoComboBox = new JComboBox<String>();
+		this.pagamentoComboBox.setEnabled(false);
+		escolhaFieldPanel.add(this.pagamentoComboBox);
 
 		this.add(escolhaFieldPanel, BorderLayout.CENTER);
 
@@ -133,11 +134,10 @@ public class ConfirmaConsultaView extends JPanel {
 				pagamentoComboBox.setEnabled(false);
 			}
 		});
-		return pagamentoComboBox;
 	}
 
 // 	Adiciona rodapé da view
-	private void addViewFooter(Medico medico, String dataHoraConsulta, JComboBox<String> pagamentoComboBox) {
+	private void addViewFooter(Medico medico, String dataHoraConsulta) {
 		JPanel botoesFieldPanel = new JPanel();
 		JButton voltarButton = new JButton("Voltar");
 		voltarButton.addActionListener((ActionEvent e) -> {

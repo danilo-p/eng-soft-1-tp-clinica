@@ -20,12 +20,12 @@ import clinica.controllers.ClientesController;
 public class CadastroClienteView extends JPanel {
 	private static final long serialVersionUID = 1L;
 
-	JTextField nomeField;
-	JTextField cpfField;
-	JTextField telefoneField;
-	JLabel cpfError;
-	JLabel telefoneError;
-	JLabel nomeError;
+	private JTextField nomeField;
+	private JTextField cpfField;
+	private JTextField telefoneField;
+	private JLabel cpfError;
+	private JLabel telefoneError;
+	private JLabel nomeError;
 
 	public CadastroClienteView() {
 		this.setViewLayout();

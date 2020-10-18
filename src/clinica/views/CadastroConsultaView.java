@@ -20,7 +20,7 @@ public class CadastroConsultaView extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 
-	int especialidadeId;
+	private int especialidadeId;
 
 	public CadastroConsultaView() {
 		this.setViewLayout();
