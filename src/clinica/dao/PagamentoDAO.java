@@ -1,7 +1,8 @@
 package clinica.dao;
 
-import clinica.models.Pagamento;
 import java.sql.SQLException;
+
+import clinica.models.Pagamento;
 
 /**
  * Data Access Object para o modelo Pagamento.

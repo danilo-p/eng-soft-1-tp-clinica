@@ -1,25 +1,27 @@
 package clinica.views;
 
-import clinica.controllers.ConsultasController;
-import clinica.models.Cliente;
-import clinica.models.Consulta;
-import clinica.models.Medico;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.sql.Time;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.List;
+
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
-import java.sql.Time;
-import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.List;
+
+import clinica.controllers.ConsultasController;
+import clinica.models.Cliente;
+import clinica.models.Consulta;
+import clinica.models.Medico;
 
 /**
  * View para a agenda de um medico.
@@ -111,7 +113,7 @@ public class AgendaMedicoView extends JPanel {
 		Timestamp cargaHorariaFim = new Timestamp(cal.getTimeInMillis());
 		List<Consulta> consultas = consultasController.getByMedico(medico, cargaHorariaInicio, cargaHorariaFim);
 		for (int i = 0; i < consultas.size(); i++) {
-			Consulta consulta = (Consulta) consultas.get(i);
+			Consulta consulta = consultas.get(i);
 			Timestamp dataConsulta = consulta.getData();
 
 			cal.setTimeInMillis(dataConsulta.getTime());

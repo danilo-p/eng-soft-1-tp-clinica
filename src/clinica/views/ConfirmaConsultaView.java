@@ -1,20 +1,22 @@
 package clinica.views;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.util.List;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
 import clinica.controllers.ClientesController;
 import clinica.controllers.ConsultasController;
 import clinica.controllers.PagamentosController;
 import clinica.models.Cliente;
 import clinica.models.Consulta;
 import clinica.models.Medico;
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.util.List;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
 
 /**
  * View para confirmação de cadastro de consulta.
@@ -39,14 +41,14 @@ public class ConfirmaConsultaView extends JPanel {
 		ClientesController clientesController = new ClientesController();
 		List<Cliente> clientes = clientesController.getClientes();
 		for (int i = 0; i < clientes.size(); i++) {
-			Cliente cliente = (Cliente) clientes.get(i);
+			Cliente cliente = clientes.get(i);
 			clienteComboBox.addItem(cliente.getNome());
 		}
 		this.add(clienteFieldPanel, BorderLayout.NORTH);
 
 		// PEGA TEXTO DO COMBOBOX DE CLIENTES E GERA UMA VARIAVEL COM OS DADOS DAQUELE
 		// CLIENTE.
-		cliente = (Cliente) clientes.get(0);
+		cliente = clientes.get(0);
 		clienteComboBox.addActionListener((ActionEvent e) -> {
 
 			textoClienteComboBox = (String) clienteComboBox.getSelectedItem();

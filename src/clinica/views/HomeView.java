@@ -2,6 +2,7 @@ package clinica.views;
 
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
+
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;

@@ -16,15 +16,18 @@ public class Agenda {
 	private int tempoIntervalo;
 
 	public Agenda() {
-		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+		this.cargaHoraria = "1,2,3,4,5";
+
+//		Adiciona inicio e fim de turno padrões
 		try {
-			this.cargaHoraria = "1,2,3,4,5";
+			SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
 			this.horaInicio = new Time(sdf.parse("07:00").getTime());
 			this.horaFim = new Time(sdf.parse("19:00").getTime());
 		} catch (ParseException ex) {
 		}
 	}
 
+//	Cria agenda com inicio e fim de turno personalizado
 	public Agenda(String cargaHoraria, Time horaInicio, Time horaFim, int tempoIntervalo) {
 		this.cargaHoraria = cargaHoraria;
 		this.horaInicio = horaInicio;

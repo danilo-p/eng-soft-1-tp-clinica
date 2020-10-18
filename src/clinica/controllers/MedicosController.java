@@ -1,16 +1,18 @@
 package clinica.controllers;
 
-import clinica.dao.MedicoDAO;
-import clinica.models.Agenda;
-import clinica.models.Medico;
-import clinica.models.Especialidade;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 import java.sql.Time;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.swing.JOptionPane;
+
+import clinica.dao.MedicoDAO;
+import clinica.models.Agenda;
+import clinica.models.Especialidade;
+import clinica.models.Medico;
 
 /**
  * Regras de negócio para operações relacionadas a medicos.

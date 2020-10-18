@@ -1,11 +1,12 @@
 package clinica.controllers;
 
-import clinica.dao.ClienteDAO;
-import clinica.models.Agenda;
-import clinica.models.Cliente;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import clinica.dao.ClienteDAO;
+import clinica.models.Agenda;
+import clinica.models.Cliente;
 
 /**
  * Regras de negócio para operações relacionadas a clientes.

@@ -1,16 +1,18 @@
 package clinica.views;
 
-import clinica.controllers.ClientesController;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
+
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+
+import clinica.controllers.ClientesController;
 
 /**
  * View para o cadastro de um cliente.

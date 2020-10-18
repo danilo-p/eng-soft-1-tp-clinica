@@ -1,9 +1,5 @@
 package clinica.views;
 
-import clinica.controllers.MedicosController;
-import clinica.controllers.EspecialidadesController;
-import clinica.dao.EspecialidadeDAO;
-import clinica.models.Especialidade;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -13,16 +9,22 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.ScrollPaneConstants;
-import javax.swing.JCheckBox;
-import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
+
+import clinica.controllers.EspecialidadesController;
+import clinica.controllers.MedicosController;
+import clinica.dao.EspecialidadeDAO;
+import clinica.models.Especialidade;
 
 /**
  * View para o cadastro de um medico.
@@ -167,7 +169,7 @@ public class CadastroMedicoView extends JPanel {
 		List<Especialidade> especialidades = especialidadesController.getEspecialidades();
 		especialidadeComboBox.addItem("");
 		for (int i = 0; i < especialidades.size(); i++) {
-			Especialidade especialidade = (Especialidade) especialidades.get(i);
+			Especialidade especialidade = especialidades.get(i);
 			especialidadeComboBox.addItem(especialidade.getNome());
 		}
 		especialidadeComboBox.addItem("Outra");

@@ -1,8 +1,9 @@
 package clinica.dao;
 
+import java.sql.SQLException;
+
 import clinica.models.Agenda;
 import clinica.models.Pessoa;
-import java.sql.SQLException;
 
 /**
  * Data Access Object para o modelo Pessoa.

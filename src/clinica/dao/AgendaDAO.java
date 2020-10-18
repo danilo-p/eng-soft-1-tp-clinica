@@ -1,10 +1,11 @@
 package clinica.dao;
 
-import clinica.models.Agenda;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import clinica.models.Agenda;
 
 /**
  * Data Access Object para o modelo Agenda.

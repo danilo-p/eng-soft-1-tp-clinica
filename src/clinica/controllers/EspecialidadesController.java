@@ -1,10 +1,11 @@
 package clinica.controllers;
 
-import clinica.dao.EspecialidadeDAO;
-import clinica.models.Especialidade;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import clinica.dao.EspecialidadeDAO;
+import clinica.models.Especialidade;
 
 /**
  * Regras de negócio para operações relacionadas a especialidades.

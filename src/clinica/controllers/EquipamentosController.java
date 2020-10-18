@@ -1,13 +1,13 @@
 package clinica.controllers;
 
-import clinica.dao.EquipamentoDAO;
-import clinica.models.Agenda;
-import clinica.models.Especialidade;
-import clinica.models.Equipamento;
-
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import clinica.dao.EquipamentoDAO;
+import clinica.models.Agenda;
+import clinica.models.Equipamento;
+import clinica.models.Especialidade;
 
 /**
  * Regras de negócio para operações relacionadas a equipamentos.

@@ -1,8 +1,9 @@
 package clinica.controllers;
 
+import java.sql.SQLException;
+
 import clinica.dao.PagamentoDAO;
 import clinica.models.Pagamento;
-import java.sql.SQLException;
 
 /**
  * Regras de negócio para operações relacionadas a pagamentos.

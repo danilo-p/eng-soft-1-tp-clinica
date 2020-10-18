@@ -1,18 +1,20 @@
 package clinica.views;
 
-import clinica.controllers.MedicosController;
-import clinica.models.Medico;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.List;
+
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
+
+import clinica.controllers.MedicosController;
+import clinica.models.Medico;
 
 /**
  * View para consultar medicos por uma especialidade.
@@ -37,7 +39,7 @@ public class ConsultaMedicosByEspecialidadesView extends JPanel {
 		String[] titulos = { "ID", "Nome", "CPF", "Telefone", "Especialidade" };
 		Object[][] linhas = new Object[medicos.size()][5];
 		for (int i = 0; i < medicos.size(); i++) {
-			Medico medico = (Medico) medicos.get(i);
+			Medico medico = medicos.get(i);
 			linhas[i][0] = medico.getId();
 			linhas[i][1] = medico.getNome();
 			linhas[i][2] = medico.getCpf();
@@ -53,7 +55,7 @@ public class ConsultaMedicosByEspecialidadesView extends JPanel {
 			public void mousePressed(MouseEvent mouseEvent) {
 				JTable table = (JTable) mouseEvent.getSource();
 				if (mouseEvent.getClickCount() == 2 && table.getSelectedRow() != -1) {
-					Medico medicoSelecionado = (Medico) medicos.get(table.getSelectedRow());
+					Medico medicoSelecionado = medicos.get(table.getSelectedRow());
 					Router.getInstance().goToView(new AgendaMedicoView(medicoSelecionado, voltarView, 0));
 				}
 			}

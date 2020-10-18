@@ -1,15 +1,16 @@
 package clinica.controllers;
 
-import clinica.dao.ConsultaDAO;
-import clinica.models.Consulta;
-import clinica.models.Cliente;
-import clinica.models.Medico;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+
+import clinica.dao.ConsultaDAO;
+import clinica.models.Cliente;
+import clinica.models.Consulta;
+import clinica.models.Medico;
 
 /**
  * Regras de negócio para operações relacionadas a consultas.

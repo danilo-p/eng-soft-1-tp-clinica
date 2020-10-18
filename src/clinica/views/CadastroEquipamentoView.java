@@ -1,26 +1,26 @@
 package clinica.views;
 
-import clinica.controllers.EquipamentosController;
-import clinica.controllers.EspecialidadesController;
-import clinica.dao.EspecialidadeDAO;
-import clinica.models.Especialidade;
-
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.sql.SQLException;
-import javax.swing.BoxLayout;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JComboBox;
-import javax.swing.JTextField;
-import javax.swing.border.EmptyBorder;
-
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
+
+import clinica.controllers.EquipamentosController;
+import clinica.controllers.EspecialidadesController;
+import clinica.dao.EspecialidadeDAO;
+import clinica.models.Especialidade;
 
 /**
  * View para o cadastro de um equipamento.
@@ -83,7 +83,7 @@ public class CadastroEquipamentoView extends JPanel {
 		List<Especialidade> especialidades = especialidadesController.getEspecialidades();
 		especialidadeComboBox.addItem("");
 		for (int i = 0; i < especialidades.size(); i++) {
-			Especialidade especialidade = (Especialidade) especialidades.get(i);
+			Especialidade especialidade = especialidades.get(i);
 			especialidadeComboBox.addItem(especialidade.getNome());
 		}
 

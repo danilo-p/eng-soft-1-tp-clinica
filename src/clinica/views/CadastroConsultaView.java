@@ -1,15 +1,17 @@
 package clinica.views;
 
-import clinica.controllers.EspecialidadesController;
-import clinica.models.Especialidade;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.util.List;
+
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JComboBox;
+
+import clinica.controllers.EspecialidadesController;
+import clinica.models.Especialidade;
 
 /**
  * View para o cadastro de uma consulta.
@@ -36,7 +38,7 @@ public class CadastroConsultaView extends JPanel {
 		EspecialidadesController especialidadesController = new EspecialidadesController();
 		List<Especialidade> especialidades = especialidadesController.getEspecialidades();
 		for (int i = 0; i < especialidades.size(); i++) {
-			Especialidade especialidade = (Especialidade) especialidades.get(i);
+			Especialidade especialidade = especialidades.get(i);
 			especialidadeComboBox.addItem(especialidade.getNome());
 		}
 

@@ -1,19 +1,21 @@
 package clinica.views;
 
-import clinica.controllers.ClientesController;
-import clinica.models.Cliente;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.List;
+
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
+
+import clinica.controllers.ClientesController;
+import clinica.models.Cliente;
 
 /**
  * View para a listagem de clientes.
@@ -47,7 +49,7 @@ public class ClientesView extends JPanel {
 		String[] titulos = { "ID", "Nome", "CPF", "Telefone" };
 		Object[][] linhas = new Object[clientes.size()][4];
 		for (int i = 0; i < clientes.size(); i++) {
-			Cliente cliente = (Cliente) clientes.get(i);
+			Cliente cliente = clientes.get(i);
 			linhas[i][0] = cliente.getId();
 			linhas[i][1] = cliente.getNome();
 			linhas[i][2] = cliente.getCpf();
@@ -61,7 +63,7 @@ public class ClientesView extends JPanel {
 			public void mousePressed(MouseEvent mouseEvent) {
 				JTable table = (JTable) mouseEvent.getSource();
 				if (mouseEvent.getClickCount() == 2 && table.getSelectedRow() != -1) {
-					Cliente clienteSelecionado = (Cliente) clientes.get(table.getSelectedRow());
+					Cliente clienteSelecionado = clientes.get(table.getSelectedRow());
 					System.out.println(clienteSelecionado.getNome());
 					Router.getInstance().goToView(new AgendaClienteView(clienteSelecionado));
 					// TODO: Redirecionar para a página do cliente quando tivermos uma
