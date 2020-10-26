@@ -98,13 +98,13 @@ VALUES (2, "Teste Sorológico IgG", 2, 4);
 INSERT INTO agendas (id, carga_horaria, hora_inicio, hora_fim, tempo_intervalo)
 VALUES (1, "1,2,3", "08:00", "14:00", 30);
 INSERT INTO pessoas (id, nome, cpf, telefone, tipo, especialidade_id, agenda_id)
-VALUES (1, "Fulano Medico", "123.456.789-10", "(12) 12345-1234", 1, 1, 1);
+VALUES (1, "Juan Benício Lucca Souza", "959.239.506-34", "(31) 99439-5862", 1, 1, 1);
 
 -- Cria Cliente de exemplo e agenda
 INSERT INTO agendas (id, carga_horaria, hora_inicio, hora_fim, tempo_intervalo)
 VALUES (2, "1,2,3,4,5", "07:00", "20:00", 30);
 INSERT INTO pessoas (id, nome, cpf, telefone, tipo, agenda_id)
-VALUES (2, "Ciclano Cliente", "123.456.789-10", "(12) 12345-1234", 0, 2);
+VALUES (2, "Laura Márcia Giovanna Galvão", "154.908.046-61", "(31) 98856-6397", 0, 2);
 
 -- Cria consultas com Teste RT PCR e pagamento por convenio 
 INSERT INTO consultas (id, data, medico_id, cliente_id)
